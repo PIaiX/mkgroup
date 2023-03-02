@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --h-height: 210px;
+  --f-height: 435px;
+}
+
+$main-font: "Inter";
+$color-1: #4737FF;
+$color-2: #F75C03;
+$color-3: #668CB2;
+$gradient-1: linear-gradient(135.19deg, #4737FF 2.39%, #1C119C 97.31%);
+$gradient-2: linear-gradient(90.6deg, #FF6812 1.13%, #FF3A0F 98.66%);
+$achromat-1: #FFFFFF;
+$achromat-2: #F2F2F2;
+$achromat-3: #D0D0D0;
+$achromat-4: #7B7B7B;
+$achromat-5: #1F1F1F;
+$transition: 300ms ease;
+$radius: .8em;
+
+/* mixins */
+@mixin flex($dir, $x, $y, $wrap) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $x;
+  align-items: $y;
+  flex-wrap: $wrap;
+}
+@mixin no-appearance {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  outline: none;
+}
+@mixin safariFix {
+  isolation: isolate;
+  transform: translateZ(0);
+}
+@mixin absBG {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+@mixin clamp($count, $line) {
+  display: -webkit-box;
+  -webkit-line-clamp: $count;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: $line;
+  max-height: $line * $count;
+}
+@mixin list {
+  list-style: none;
+  padding-left: 0px;
+}
+
+
+/* Typography */
+a, a:hover, a:focus, a:active {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+h1, h2, h3, h4, h5, h6, p, label, span, a, button, form, fieldset, legend, select, input, textarea, button, div, blockquote, cite, figure, figcaption, table, ul, ol, dl, address {
+  line-height: 130%;
+  margin-bottom: 0px;
+}
+
+h1 {
+  text-align: left;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 100%;
+  margin-bottom: 1em;
+}
+h2 {
+  text-align: left;
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-bottom: .5em;
+}
+h3 {
+  text-align: left;
+  font-size: 1.25em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+h4 {
+  text-align: left;
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+h5 {
+  text-align: left;
+  font-size: .9em;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+h6 {
+  font-size: .75em;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+.fs {
+  &-08 {font-size: 0.8em;}
+  &-09 {font-size: 0.9em;}
+  &-10 {font-size: 1em;}
+  &-11 {font-size: 1.1em;}
+  &-12 {font-size: 1.2em;}
+  &-13 {font-size: 1.3em;}
+  &-14 {font-size: 1.4em;}
+  &-15 {font-size: 1.5em;}
+  &-16 {font-size: 1.6em;}
+  &-17 {font-size: 1.7em;}
+  &-18 {font-size: 1.8em;}
+  &-19 {font-size: 1.9em;}
+  &-20 {font-size: 2em;}
+  &-25 {font-size: 2.5em;}
+  &-30 {font-size: 3em;}
+  &-35 {font-size: 3.5em;}
+  &-40 {font-size: 4em;}
+}
+.fw {
+  &-3 {font-weight: 300;}
+  &-4 {font-weight: 400;}
+  &-5 {font-weight: 500;}
+  &-6 {font-weight: 600;}
+  &-7 {font-weight: 700;}
+  &-8 {font-weight: 800;}
+  &-9 {font-weight: 900;}
+}
+.color-1 {color: $color-1;}
+.color-2 {color: $color-2;}
+.bb-1 {border-bottom: 1px solid currentColor;}
+
+
+/* Form elements */
+input, textarea {
+  background: #fff;
+  border: none;
+  border-radius: $radius*2;
+  padding: .4em .8em;
+  width: 100%;
+  line-height: normal;
+  outline: none;
+  display: block;
+  transition: $transition;
+  &:-moz-placeholder, &::-moz-placeholder,
+  &::-webkit-input-placeholder, &:-ms-input-placeholder, &::-ms-input-placeholder {
+    color: $achromat-3;
+    font-weight: 400;
+  }
+  &::placeholder {
+    color: $achromat-3;
+    font-weight: 400;
+  }
+}
+button {
+  background: none;
+  border: none;
+  padding: unset;
+  display: block;
+  font-family: inherit;
+  outline: none;
+  color: inherit;
+}
+.btn {
+  @include flex(row, center, center, nowrap);
+  padding: .4em .8em;
+  text-align: center;
+  transition: $transition;
+  width: fit-content;
+  font-size: 1em;
+  font-weight: 400;
+  border-radius: $radius*2;
+  // &-none {
+  //   padding: 0px;
+  //   border: none;
+  //   &:before, &:after {
+  //     content: unset;
+  //   }
+  //   &:hover, &:focus, &:active, &.active {
+  //     border: none;
+  //   }
+  // }
+  &-1 {
+    @extend .btn;
+    color: #fff;
+    background: $color-1;
+    &:hover, &:focus, &:active, &.active {
+      color: #fff;
+      background: $color-2;
+    }
+  }
+  &-2 {
+    @extend .btn;
+    color: #fff;
+    background: $color-2;
+    &:hover, &:focus, &:active, &.active {
+      color: #fff;
+      background: $color-1;
+    }
+  }
+}
+
+.flex-1 {flex:1;}
+
+body {
+  margin: 0;
+  font-family: $main-font, Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 24px;
+  font-weight: 400;
+  color: $achromat-5;
+  overflow-x: hidden;
+}
+
+
+header {
+  padding: 1em 0;
+  .top {
+    @include flex(row, space-between, center, nowrap);
+    address {
+      font-size: .75em;
+    }
+  }
+  .middle {
+    @include flex(row, space-between, center, nowrap);
+    .form-search {
+      width: 390px;
+      border: 1px solid $color-1;
+      border-radius: $radius*2;
+      position: relative;
+      button {
+        color: $color-1;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 100%;
+        width: 2em;
+      }
+    }
+  }
+  ul {
+    @include list();
+    &.menu-1 {
+      @include flex(row, flex-start, center, nowrap);
+      li {
+        &:not(:first-child){margin-left: 1em;}
+        a {
+          color: $achromat-4;
+        }
+      }
+    }
+    &.menu-2 {
+      @include flex(row, space-between, center, nowrap);
+    }
+  }
+}
+.logo {
+  @include flex(row, flex-start, flex-end, nowrap);
+  img, svg {
+    height: 60px;
+    width: fit-content;
+    margin-right: 0.5em;
+    margin-bottom: 0.15em;
+  }
+}
+
+main {
+  min-height: calc(100vh - var(--h-height) - var(--f-height));
+  padding: 2em 0;
+}
+
+.sec-1 {
+  .swiper {
+    position: relative;
+    &-slide {
+      height: 420px;
+      background-color: #7297BB;
+      border-radius: $radius;
+      position: relative;
+      overflow: hidden;
+      @include safariFix();
+      .img {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          height: 100%;
+          width: 100%;
+          z-index: 1;
+          background-image: linear-gradient(to right, $color-3 30%, transparent 65%);
+          background-size: cover;
+        }
+        img {
+          height: 100%;
+          width: 70%;
+          object-fit: cover;
+          object-position: center;
+          margin-left: auto;
+          display: block;
+          position: relative;
+          z-index: 0;
+        }
+        // background: linear-gradient(90deg, #668CB2 27.12%, rgba(102, 140, 178, 0) 63.03%), url(.jpg), #7297BB;
+      }
+      .descr {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        padding: 2.5em 4em;
+        height: 100%;
+        width: 85%;
+        .title {
+          font-size: 2em;
+          font-weight: 700;
+        }
+      }
+    }
+    &-pagination {
+      width: fit-content;
+      height: fit-content;
+      top: unset;
+      bottom: 2.5em;
+      left: 4em;
+      @include flex(row, flex-start, center, nowrap);
+      &-bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        margin: 0 13px 0 0;
+        background-color: #fff;
+        opacity: .5;
+        transition: $transition;
+        &-active {
+          opacity: 1;
+          width: 50px;
+        }
+      }
+    }
+    &-button {
+      &-prev, &-next {
+        top: 50%;
+        margin: 0px !important;
+        transform: translateY(-50%);
+        width: 1.25em;
+        height: 1.25em;
+        border-radius: 50%;
+        background-color: rgba($color: $achromat-1, $alpha: .5);
+        background-size: 70% 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &::after {
+          content: unset;
+        }
+      }
+      &-prev {
+        background-image: url(imgs/icons/prev.svg);
+        left: .8em;
+      }
+      &-next {
+        background-image: url(imgs/icons/next.svg);
+        right: .8em;
+      }
+    }
+  }
+}
+
+footer {
+  height: var(--f-height);
+  background-color: $achromat-5;
+  color: $achromat-1;
+  padding: 2em 0;
+  font-weight: 300;
+  ul {
+    @include list();
+    li {
+      &:not(:first-child){margin-top: .5em;}
+      a {
+        border-bottom: 1px solid currentColor;
+        transition: $transition;
+        &:hover, &:focus, &:active {
+          color: $color-2;
+        }
+      }
+    }
+  }
+  .bottom {
+    @include flex(row, flex-start, center, nowrap);
+    margin-top: 2em;
+  }
+}
