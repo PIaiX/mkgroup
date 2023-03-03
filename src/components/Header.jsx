@@ -29,7 +29,7 @@ const Header = () => {
           <h6>Описание деятельности <br/>или слоган компании</h6>
         </Link>
         <button type='button' className='btn-1 align-items-baseline'>
-          <IconGrid/>
+          <IconGrid className='fs-07'/>
           <span className='ms-2'>Каталог</span>
         </button>
         <form action="" className='form-search'>
