@@ -1,8 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --h-height: 210px;
+  --h-height: 240px;
   --f-height: 435px;
+  --img-height: 300px;
+  --font-size: 24px;
+  @media (max-width: 1399px) {
+    --h-height: 221px;
+    --f-height: 380px;
+    --img-height: 260px;
+    --font-size: 20px;
+  }
+  @media (max-width: 1199px) {
+    --h-height: 212px;
+    --f-height: 350px;
+    --img-height: 215px;
+    --font-size: 18px;
+  }
+  @media (max-width: 991px) {
+    --h-height: 51px;
+    --f-height: 77px;
+  }
+  @media (max-width: 767px) {
+    --font-size: 16px;
+  }
+  @media (max-width: 575px) {
+    --img-height: 43vw;
+  }
 }
 
 $main-font: "Inter";
@@ -48,7 +72,10 @@ $radius: .8em;
 }
 @mixin clamp($count, $line) {
   display: -webkit-box;
+  line-clamp: $count;
   -webkit-line-clamp: $count;
+  box-orient: vertical;
+  -moz-box-orient: vertical;
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: $line;
@@ -58,7 +85,12 @@ $radius: .8em;
   list-style: none;
   padding-left: 0px;
 }
-
+@mixin shadow {
+  filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.15));
+}
+@mixin shadow2 {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
 
 /* Typography */
 a, a:hover, a:focus, a:active {
@@ -87,20 +119,23 @@ h2 {
 }
 h3 {
   text-align: left;
-  font-size: 1.25em;
+  font-size: 1.2em;
   font-weight: 500;
-  margin-bottom: 0.5em;
+  margin-bottom: 0px;
 }
 h4 {
   text-align: left;
-  font-size: 1em;
-  font-weight: 400;
+  font-size: 1.1em;
+  font-weight: 500;
   margin-bottom: 0px;
+  @media (max-width: 575px) {
+    font-size: 1em;
+  }
 }
 h5 {
   text-align: left;
-  font-size: .9em;
-  font-weight: 400;
+  font-size: 1em;
+  font-weight: 600;
   margin-bottom: 1em;
 }
 h6 {
@@ -110,6 +145,8 @@ h6 {
 }
 
 .fs {
+  &-07 {font-size: 0.7em;}
+  &-075 {font-size: 0.75em;}
   &-08 {font-size: 0.8em;}
   &-09 {font-size: 0.9em;}
   &-10 {font-size: 1em;}
@@ -141,12 +178,10 @@ h6 {
 .color-2 {color: $color-2;}
 .bb-1 {border-bottom: 1px solid currentColor;}
 
-
 /* Form elements */
 input, textarea {
   background: #fff;
   border: none;
-  border-radius: $radius*2;
   padding: .4em .8em;
   width: 100%;
   line-height: normal;
@@ -163,6 +198,128 @@ input, textarea {
     font-weight: 400;
   }
 }
+textarea {border-radius: $radius;}
+input {
+  border-radius: $radius*2;
+  &[type='radio'] {
+    @include no-appearance();
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    background-color: #fff;
+    box-shadow: none;
+    padding: 0px;
+    margin: 0px;
+    transition: $transition;
+    border: 2px solid $achromat-3;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60%;
+      height: 60%;
+      border-radius: 50%;
+      background-color: $achromat-3;
+      transform: translate(-50%, -50%);
+      transition: $transition;
+    }
+    &:checked {
+      border: 2px solid $color-1;
+      &::after {
+        background-color: $color-1;
+      }
+    }
+  }
+  &[type='checkbox'] {
+    @include no-appearance();
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    background-color: #fff;
+    box-shadow: none;
+    padding: 0px;
+    margin: 0px;
+    transition: $transition;
+    border: 2px solid $achromat-3;
+    border-radius: $radius*.2;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 80%;
+      transform-origin: 50% 50%;
+      transform: rotateZ(45deg) translate(-100%, -25%);
+      border-bottom: 4px solid $color-1;
+      border-right: 4px solid $color-1;
+      border-radius: 2px;
+      opacity: 0;
+      transition: $transition;
+    }
+    &:checked {
+      border: 2px solid $color-1;
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+label {
+  @include flex(row, flex-start, center, nowrap);
+  span {
+    flex: 1;
+    cursor: pointer;
+  }
+  &.pill {
+    input {
+      display: none;
+      &:checked + span {
+        background-color: $color-1;
+        color: $achromat-1;
+      }
+    }
+    span {
+      background-color: $achromat-1;
+      padding: .4em .8em;
+      border-radius: $radius*2;
+      transition: $transition;
+    }
+  }
+  &.figure {
+    display: block;
+    input {
+      display: none;
+      &:checked ~ .figure-img {
+        background-image: linear-gradient(0deg, #4737FF, #4737FF), var(--img);
+      }
+      &:checked ~ .text {
+        color: $color-1;
+      }
+    }
+    .figure-img {
+      width: 100%;
+      max-width: 200px;
+      height: 200px;
+      border-radius: $radius;
+      background-image: var(--img);
+      background-size: cover;
+      transition: $transition;
+      background-blend-mode: screen, normal;
+    }
+    .text {
+      transition: $transition;
+      margin-top: .5em;
+    }
+  }
+}
+
 button {
   background: none;
   border: none;
@@ -211,14 +368,16 @@ button {
   }
 }
 
+/* Blocks */
 .flex-1 {flex:1;}
+.mb-35 {margin-bottom: 3.5em;}
 
 body {
   margin: 0;
   font-family: $main-font, Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 24px;
+  font-size: var(--font-size);
   font-weight: 400;
   color: $achromat-5;
   overflow-x: hidden;
@@ -227,10 +386,22 @@ body {
 
 header {
   padding: 1em 0;
+  height: var(--h-height);
+  background-color: $achromat-2;
+  border-radius: 0 0 $radius $radius;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.09);
+  @media (max-width:991px) {
+    padding: 0;
+  }
   .top {
     @include flex(row, space-between, center, nowrap);
-    address {
-      font-size: .75em;
+    @media (max-width:991px) {
+      height: 100%;
+    }
+    address {font-size: .75em;}
+    .menu-btn {
+      font-size: 1.5em;
+      display: flex;
     }
   }
   .middle {
@@ -240,6 +411,9 @@ header {
       border: 1px solid $color-1;
       border-radius: $radius*2;
       position: relative;
+      @media (max-width:1199px) {
+        width: 260px;
+      }
       button {
         color: $color-1;
         position: absolute;
@@ -258,11 +432,22 @@ header {
         &:not(:first-child){margin-left: 1em;}
         a {
           color: $achromat-4;
+          transition: $transition;
+          &:hover, &:focus, &:active, &.active {
+            color: $color-1;
+          }
         }
       }
     }
     &.menu-2 {
       @include flex(row, space-between, center, nowrap);
+      a {
+        color: $achromat-5;
+        transition: $transition;
+        &:hover, &:focus, &:active, &.active {
+          color: $color-1;
+        }
+      }
     }
   }
 }
@@ -273,6 +458,9 @@ header {
     width: fit-content;
     margin-right: 0.5em;
     margin-bottom: 0.15em;
+    @media (max-width:991px) {
+      height: 33px;
+    }
   }
 }
 
@@ -281,7 +469,9 @@ main {
   padding: 2em 0;
 }
 
+/* Section 1 */
 .sec-1 {
+  @include shadow();
   .swiper {
     position: relative;
     &-slide {
@@ -291,6 +481,12 @@ main {
       position: relative;
       overflow: hidden;
       @include safariFix();
+      @media (max-width:991px) {
+        height: 380px;
+      }
+      @media (max-width:575px) {
+        height: 275px;
+      }
       .img {
         position: absolute;
         top: 0px;
@@ -308,6 +504,9 @@ main {
           z-index: 1;
           background-image: linear-gradient(to right, $color-3 30%, transparent 65%);
           background-size: cover;
+          @media (max-width:991px) {
+            background-image: linear-gradient(to right, $color-3 50%, transparent 85%);
+          }
         }
         img {
           height: 100%;
@@ -318,8 +517,8 @@ main {
           display: block;
           position: relative;
           z-index: 0;
+          @media (max-width:991px){width: 50%;}
         }
-        // background: linear-gradient(90deg, #668CB2 27.12%, rgba(102, 140, 178, 0) 63.03%), url(.jpg), #7297BB;
       }
       .descr {
         position: relative;
@@ -328,9 +527,25 @@ main {
         padding: 2.5em 4em;
         height: 100%;
         width: 85%;
+        @media (max-width:991px) {
+          padding: 2em 3em;
+          width: 100%;
+        }
+        @media (max-width:991px) {
+          padding: 1em;
+        }
         .title {
           font-size: 2em;
           font-weight: 700;
+          @media (max-width:991px) {
+            font-size: 1.75em;
+          }
+          @media (max-width:767px) {
+            font-size: 1.5em;
+          }
+          @media (max-width:575px) {
+            font-size: 1.25em;
+          }
         }
       }
     }
@@ -341,6 +556,14 @@ main {
       bottom: 2.5em;
       left: 4em;
       @include flex(row, flex-start, center, nowrap);
+      @media (max-width:9915px) {
+        bottom: 2em;
+        left: 3em;
+      }
+      @media (max-width:575px) {
+        bottom: 1em;
+        left: 1em;
+      }
       &-bullet {
         width: 10px;
         height: 10px;
@@ -364,24 +587,186 @@ main {
         height: 1.25em;
         border-radius: 50%;
         background-color: rgba($color: $achromat-1, $alpha: .5);
-        background-size: 70% 70%;
-        background-repeat: no-repeat;
-        background-position: center;
-        &::after {
-          content: unset;
-        }
+        color: $achromat-1;
+        @include flex(row, center, center, nowrap);
+        &::after {content: unset;}
+        svg {font-size: .75em;}
       }
-      &-prev {
-        background-image: url(imgs/icons/prev.svg);
-        left: .8em;
+      &-prev {left: .8em;}
+      &-next {right: .8em;}
+    }
+  }
+}
+
+/* Section 2 */
+.sec-2 {
+  .row {
+    .col {
+      @media (max-width:991px) {
+        &:nth-child(6), &:nth-child(7){display: none;}
       }
-      &-next {
-        background-image: url(imgs/icons/next.svg);
-        right: .8em;
+      @media (max-width:767px) {
+        &:nth-child(4), &:nth-child(5){display: none;}
       }
     }
   }
 }
+.category-card {
+  img {
+    width: 100%;
+    height: var(--img-height);
+    object-fit: cover;
+    border-radius: $radius;
+    @include shadow();
+    margin-bottom: .5em;
+  }
+  &-btn {
+    width: 100%;
+    height: var(--img-height);
+    background-image: url(imgs/lines.png), $gradient-1;
+    background-repeat: no-repeat;
+    background-position: 100% 100%, 50% 50%;
+    border-radius: $radius;
+    background-size: cover, cover;
+    @include shadow();
+    color: $achromat-1;
+    @include flex(column, center, flex-start, nowrap);
+    text-align: left;
+    padding: 5% 20% 20% 15%;
+    .icon {
+      margin-top: .5em;
+      width: 1.7em;
+      height: 1.7em;
+      font-size: 1.2em;
+      background-color: $achromat-1;
+      color: $color-1;
+      border-radius: 50%;
+      @include flex(row, center, center, nowrap);
+      padding-left: 0.1em;
+    }
+  }
+}
+
+/* Section 3 */
+.sec-3 {
+  .swiper {
+    &-wrapper{align-items: stretch;}
+    &-slide {height: unset !important;}
+    &-scrollbar {opacity: 0;}
+    @media (max-width: 991px) {
+      padding-bottom: 2em;
+      .swiper-scrollbar {
+        opacity: 1;
+      }
+    }
+  }
+  .offer {
+    width: 100%;
+    background-image: url(imgs/mask.png), $gradient-1;
+    background-repeat: no-repeat;
+    background-size: contain, cover;
+    background-position: 100% 100%, 50% 50%;
+    padding: 2.5em;
+    border-radius: $radius;
+    @include shadow();
+    color: $achromat-1;
+    @media (max-width:1199px) {
+      padding: 2em;
+    }
+    @media (max-width: 991px) {
+      height: 100%;
+      @include flex(column, center, flex-start, nowrap);
+    }
+    @media (max-width:575px) {
+      padding: 1em;
+    }
+    h3 {
+      width: 90%;
+    }
+    p {
+      width: 70%;
+      margin: 1.5em 0;
+      @media (max-width:575px) {
+        margin: 1em 0;
+      }
+    }
+  }
+}
+.project-card {
+  position: relative;
+  img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: var(--img-height);
+    object-fit: cover;
+    border-radius: $radius;
+    @include shadow();
+  }
+  figcaption {
+    padding: .8em .8em 0;
+    @media (max-width:1199px) {
+      padding: .8em 0 0;
+    }
+    h5 {
+      font-weight: 400;
+      @include clamp(2, 1.2em);
+    }
+  }
+  .marking {
+    background-color: $color-1;
+    color: $achromat-1;
+    border-radius: $radius*2;
+    position: absolute;
+    top: .8em;
+    right: .8em;
+    z-index: 2;
+    font-size: .75em;
+    padding: 0.5em 0.8em;
+    @include shadow2();
+  }
+}
+
+.quiz {
+  background-color: $achromat-2;
+  padding: 2em;
+  border-radius: $radius;
+  @include shadow();
+  .img {
+    width: 100%;
+    height: 365px;
+    object-fit: cover;
+    border-radius: $radius;
+    @media (max-width:1399px) {
+      height: 325px;
+    }
+  }
+  .markers {
+    @include flex(row, flex-start, center, nowrap);
+    margin-top: .5em;
+    margin-bottom: 1em;
+    span {
+      width: .4em;
+      height: .4em;
+      border-radius: .2em;
+      background-color: $color-2;
+      margin-right: .65em;
+      transition: $transition;
+      opacity: .5;
+      &.active {
+        width: 2em;
+        opacity: 1;
+      }
+    }
+  }
+  ul {
+    @include list();
+    li {
+      &:not(:first-child){margin-top: .75em;}
+    }
+  }
+}
+
 
 footer {
   height: var(--f-height);
@@ -389,6 +774,49 @@ footer {
   color: $achromat-1;
   padding: 2em 0;
   font-weight: 300;
+  @media (max-width:991px) {
+    filter: drop-shadow(0px -3px 5px rgba(0, 0, 0, 0.09));
+    background-color: $achromat-2;
+    color: $achromat-5;
+    padding: 0;
+    nav {
+      ul {
+        @include flex(row, space-between, center, nowrap);
+        li {
+          margin-top: 0px !important;
+          a {
+            color: $achromat-5;
+            @include flex(column, center, center, nowrap);
+            border-bottom: none;
+            position: relative;
+            padding-bottom: .3em;
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0px;
+              left: 0px;
+              width: 0%;
+              height: 2px;
+              border-radius: 2px;
+              background-color: currentColor;
+              transition: $transition;
+            }
+            &.active {
+              &::after {width: 100%;}
+              svg {
+                color: $achromat-5;
+              }
+            }
+            svg {
+              font-size: 1.5em;
+              color: $achromat-4;
+              margin-bottom: .2em;
+            }
+          }
+        }
+      }
+    }
+  }
   ul {
     @include list();
     li {
@@ -396,8 +824,10 @@ footer {
       a {
         border-bottom: 1px solid currentColor;
         transition: $transition;
-        &:hover, &:focus, &:active {
-          color: $color-2;
+        @media (min-width: 992px) {
+          &:hover, &:focus, &:active {
+            color: $color-2;
+          }
         }
       }
     }

@@ -24,10 +24,10 @@ const Header = () => {
       </Container>
       <hr />
       <Container className='middle'>
-        <div className="logo">
+        <Link to='/' className="logo">
           <IconLogo/>
           <h6>Описание деятельности <br/>или слоган компании</h6>
-        </div>
+        </Link>
         <button type='button' className='btn-1 align-items-baseline'>
           <IconGrid/>
           <span className='ms-2'>Каталог</span>
