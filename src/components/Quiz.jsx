@@ -10,30 +10,30 @@ const Quiz = () => {
     <form className='quiz'>
       {
         (page === 0) &&
-        <Row className='gx-5'>
-          <Col md={6}>
+        <Row className='gx-3 gx-sm-4 gx-lg-5'>
+          <Col xs={8} md={6}>
             <div className="h-100 d-flex flex-column justify-content-between">
               <div>
-                <h2 className='mb-5'>Заголовок для квиза</h2>
-                <p className='mb-5'>Ответьте на Х вопросов и получите скидку на монтаж металлоконструкций </p>
+                <h2 className='mb-3 mb-sm-4 mb-lg-5'>Заголовок для квиза</h2>
+                <p className='mb-3 mb-sm-4 mb-lg-5'>Ответьте на Х вопросов и получите скидку на монтаж металлоконструкций </p>
                 <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Начать</button>
               </div>
               <p className='fs-075'>*Примечание об акции  периоде ее действия</p>
             </div>
           </Col>
-          <Col md={6}>
+          <Col xs={4} md={6}>
             <img src="imgs/img4.jpg" alt="металлоконструкции" className='img'/>
           </Col>
         </Row>
       }
       {
         (page > 0) &&
-        <Row className='gx-5'>
-          <Col md={6}>
+        <Row className='gx-3 gx-sm-4 gx-lg-5'>
+          <Col xs={8} md={6}>
             <h2>Текст {page} вопроса для квиза?</h2>
           </Col>
-          <Col md={6}>
-            <div>Вопрос {page} из {pagesCount}</div>
+          <Col xs={4} md={6}>
+            <div><span className='d-none d-sm-inline'>Вопрос </span>{page} из {pagesCount}</div>
             <div className='markers'>
               {
                 [1, 2, 3, 4, 5, 6, 7].map( item => {
@@ -46,8 +46,8 @@ const Quiz = () => {
       }
       {
         (page === 1) &&
-        <Row className='gx-5'>
-          <Col md={6}>
+        <Row className='gx-3 gx-sm-4 gx-lg-5'>
+          <Col xs={8} md={6}>
             <div className="h-100 d-flex flex-column justify-content-between">
               <div>
                 <ul>
@@ -78,17 +78,18 @@ const Quiz = () => {
                 </ul>
               </div>
               <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
+              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
             </div>
           </Col>
-          <Col md={6}>
+          <Col xs={4} md={6}>
             <img src="imgs/img4.jpg" alt="металлоконструкции" className='img'/>
           </Col>
         </Row>
       }
       {
         (page === 2) &&
-        <Row className='gx-5'>
-          <Col md={6}>
+        <Row className='gx-3 gx-sm-4 gx-lg-5'>
+          <Col xs={8} md={6}>
             <div className="h-100 d-flex flex-column justify-content-between">
               <div>
                 <ul>
@@ -119,17 +120,18 @@ const Quiz = () => {
                 </ul>
               </div>
               <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
+              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
             </div>
           </Col>
-          <Col md={6}>
+          <Col xs={4} md={6}>
             <img src="imgs/img4.jpg" alt="металлоконструкции" className='img'/>
           </Col>
         </Row>
       }
       {
         (page === 3) &&
-        <Row className='gx-5'>
-          <Col md={6}>
+        <Row className='gx-3 gx-sm-4 gx-lg-5'>
+          <Col xs={8} md={6}>
             <div className="h-100 d-flex flex-column justify-content-between">
               <div>
                 <ul>
@@ -160,17 +162,18 @@ const Quiz = () => {
                 </ul>
               </div>
               <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
+              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
             </div>
           </Col>
-          <Col md={6}>
+          <Col xs={4} md={6}>
             <img src="imgs/img4.jpg" alt="металлоконструкции" className='img'/>
           </Col>
         </Row>
       }
       {
         (page === 4) &&
-        <Row className='gx-5'>
-          <Col md={6}>
+        <Row className='gx-3 gx-sm-4 gx-lg-5'>
+          <Col xs={8} md={6}>
             <div className="h-100 d-flex flex-column justify-content-between">
               <div>
                 <ul>
@@ -201,17 +204,18 @@ const Quiz = () => {
                 </ul>
               </div>
               <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
+              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
             </div>
           </Col>
-          <Col md={6}>
+          <Col xs={4} md={6}>
             <img src="imgs/img4.jpg" alt="металлоконструкции" className='img'/>
           </Col>
         </Row>
       }
       {
         (page === 5) &&
-        <Row className='gx-5'>
-          <Col md={6}>
+        <Row className='gx-3 gx-sm-4 gx-lg-5'>
+          <Col xs={8} md={6}>
             <div className="h-100 d-flex flex-column justify-content-between">
               <div>
                 <ul>
@@ -242,16 +246,17 @@ const Quiz = () => {
                 </ul>
               </div>
               <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
+              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
             </div>
           </Col>
-          <Col md={6}>
+          <Col xs={4} md={6}>
             <img src="imgs/img4.jpg" alt="металлоконструкции" className='img'/>
           </Col>
         </Row>
       }
       {
         (page === 6) &&
-        <Row md={4} className='gx-5'>
+        <Row xs={2} sm={3} md={4} className='gx-3 gx-sm-4 gx-xl-5'>
           <Col>
             <label className='figure'>
               <input type="radio" name={'radio'+page} />
@@ -282,13 +287,14 @@ const Quiz = () => {
           </Col>
           <Col xs={12}>
             <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
+            <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
           </Col>
         </Row>
       }
       {
         (page === 7) &&
-        <Row className='gx-5'>
-          <Col md={6}>
+        <Row className='gx-3 gx-sm-4 gx-lg-5'>
+          <Col xs={8} md={6}>
             <div className="h-100 d-flex flex-column justify-content-between">
               <div>
                 <input type="text" placeholder='Имя' className='mb-3'/>
@@ -296,9 +302,10 @@ const Quiz = () => {
                 <textarea rows="4" placeholder='Комментарий'></textarea>
               </div>
               <button type='submit' className='btn-2'>Завершить</button>
+              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
             </div>
           </Col>
-          <Col md={6}>
+          <Col xs={4} md={6}>
             <img src="imgs/img4.jpg" alt="металлоконструкции" className='img'/>
           </Col>
         </Row>

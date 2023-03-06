@@ -102,6 +102,9 @@ a, a:hover, a:focus, a:active {
 h1, h2, h3, h4, h5, h6, p, label, span, a, button, form, fieldset, legend, select, input, textarea, button, div, blockquote, cite, figure, figcaption, table, ul, ol, dl, address {
   line-height: 130%;
   margin-bottom: 0px;
+  @media (max-width:575px) {
+    line-height: 120%;
+  }
 }
 
 h1 {
@@ -110,18 +113,27 @@ h1 {
   font-weight: 700;
   line-height: 100%;
   margin-bottom: 1em;
+  @media (max-width:575px) {
+    font-size: 1.5em;
+  }
 }
 h2 {
   text-align: left;
   font-size: 1.5em;
   font-weight: 400;
   margin-bottom: .5em;
+  @media (max-width:575px) {
+    font-size: 1.25em;
+  }
 }
 h3 {
   text-align: left;
   font-size: 1.2em;
   font-weight: 500;
   margin-bottom: 0px;
+  @media (max-width: 575px) {
+    font-size: 1.1em;
+  }
 }
 h4 {
   text-align: left;
@@ -137,6 +149,9 @@ h5 {
   font-size: 1em;
   font-weight: 600;
   margin-bottom: 1em;
+  @media (max-width: 575px) {
+    font-size: .9em;
+  }
 }
 h6 {
   font-size: .75em;
@@ -290,6 +305,9 @@ label {
       padding: .4em .8em;
       border-radius: $radius*2;
       transition: $transition;
+      @media (max-width:575px) {
+        border-radius: $radius;
+      }
     }
   }
   &.figure {
@@ -312,6 +330,9 @@ label {
       background-size: cover;
       transition: $transition;
       background-blend-mode: screen, normal;
+      @media (max-width:991px) {
+        height: 140px;
+      }
     }
     .text {
       transition: $transition;
@@ -732,6 +753,15 @@ main {
   padding: 2em;
   border-radius: $radius;
   @include shadow();
+  @media (max-width:1199px) {
+    padding: 1.5em;
+  }
+  @media (max-width:575px) {
+    padding: 1em;
+  }
+  @media (max-width:370px) {
+    font-size: .9em;
+  }
   .img {
     width: 100%;
     height: 365px;
@@ -739,6 +769,12 @@ main {
     border-radius: $radius;
     @media (max-width:1399px) {
       height: 325px;
+    }
+    @media (max-width:1199px) {
+      height: 280px;
+    }
+    @media (max-width:991px) {
+      height: 240px;
     }
   }
   .markers {
@@ -756,6 +792,13 @@ main {
       &.active {
         width: 2em;
         opacity: 1;
+      }
+      @media (max-width: 767px) {
+        margin-right: .4em;
+        &.active {width: 1em;}
+      }
+      @media (max-width: 575px) {
+        margin-right: .2em;
       }
     }
   }

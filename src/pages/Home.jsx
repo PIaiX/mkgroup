@@ -14,12 +14,9 @@ import {ReactComponent as IconPrev} from '../assets/imgs/icons/prev.svg';
 import {ReactComponent as IconNext} from '../assets/imgs/icons/next.svg';
 import Quiz from '../components/Quiz';
 import ProjectCard from '../components/ProjectCard';
-import useIsMobile from '../hooks/isMobile';
+
 
 const Home = () => {
-  const mobileMD = useIsMobile('991px');
-  const mobileSM = useIsMobile('767px');
-
   return (
     <main>
       <Container>

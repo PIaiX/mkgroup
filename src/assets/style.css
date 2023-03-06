@@ -51,6 +51,11 @@ h1, h2, h3, h4, h5, h6, p, label, span, a, button, form, fieldset, legend, selec
   line-height: 130%;
   margin-bottom: 0px;
 }
+@media (max-width: 575px) {
+  h1, h2, h3, h4, h5, h6, p, label, span, a, button, form, fieldset, legend, select, input, textarea, button, div, blockquote, cite, figure, figcaption, table, ul, ol, dl, address {
+    line-height: 120%;
+  }
+}
 
 h1 {
   text-align: left;
@@ -59,6 +64,11 @@ h1 {
   line-height: 100%;
   margin-bottom: 1em;
 }
+@media (max-width: 575px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
 
 h2 {
   text-align: left;
@@ -66,12 +76,22 @@ h2 {
   font-weight: 400;
   margin-bottom: 0.5em;
 }
+@media (max-width: 575px) {
+  h2 {
+    font-size: 1.25em;
+  }
+}
 
 h3 {
   text-align: left;
   font-size: 1.2em;
   font-weight: 500;
   margin-bottom: 0px;
+}
+@media (max-width: 575px) {
+  h3 {
+    font-size: 1.1em;
+  }
 }
 
 h4 {
@@ -91,6 +111,11 @@ h5 {
   font-size: 1em;
   font-weight: 600;
   margin-bottom: 1em;
+}
+@media (max-width: 575px) {
+  h5 {
+    font-size: 0.9em;
+  }
 }
 
 h6 {
@@ -320,6 +345,11 @@ label.pill span {
   border-radius: 1.6em;
   transition: 300ms ease;
 }
+@media (max-width: 575px) {
+  label.pill span {
+    border-radius: 0.8em;
+  }
+}
 label.figure {
   display: block;
 }
@@ -341,6 +371,11 @@ label.figure .figure-img {
   background-size: cover;
   transition: 300ms ease;
   background-blend-mode: screen, normal;
+}
+@media (max-width: 991px) {
+  label.figure .figure-img {
+    height: 140px;
+  }
 }
 label.figure .text {
   transition: 300ms ease;
@@ -867,6 +902,21 @@ main {
   border-radius: 0.8em;
   filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.15));
 }
+@media (max-width: 1199px) {
+  .quiz {
+    padding: 1.5em;
+  }
+}
+@media (max-width: 575px) {
+  .quiz {
+    padding: 1em;
+  }
+}
+@media (max-width: 370px) {
+  .quiz {
+    font-size: 0.9em;
+  }
+}
 .quiz .img {
   width: 100%;
   height: 365px;
@@ -877,6 +927,16 @@ main {
 @media (max-width: 1399px) {
   .quiz .img {
     height: 325px;
+  }
+}
+@media (max-width: 1199px) {
+  .quiz .img {
+    height: 280px;
+  }
+}
+@media (max-width: 991px) {
+  .quiz .img {
+    height: 240px;
   }
 }
 .quiz .markers {
@@ -900,6 +960,19 @@ main {
 .quiz .markers span.active {
   width: 2em;
   opacity: 1;
+}
+@media (max-width: 767px) {
+  .quiz .markers span {
+    margin-right: 0.4em;
+  }
+  .quiz .markers span.active {
+    width: 1em;
+  }
+}
+@media (max-width: 575px) {
+  .quiz .markers span {
+    margin-right: 0.2em;
+  }
 }
 .quiz ul {
   list-style: none;
