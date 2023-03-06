@@ -371,7 +371,6 @@ label.figure .figure-img {
   max-width: 200px;
   height: 200px;
   border-radius: 0.8em;
-  background-image: var(--img);
   background-size: cover;
   transition: 300ms ease;
   background-blend-mode: screen, normal;

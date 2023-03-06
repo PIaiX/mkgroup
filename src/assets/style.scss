@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+// "homepage": "https://ngf93.github.io/mkgroup",
 :root {
   --h-height: 240px;
   --f-height: 435px;
@@ -330,7 +331,6 @@ label {
       max-width: 200px;
       height: 200px;
       border-radius: $radius;
-      background-image: var(--img);
       background-size: cover;
       transition: $transition;
       background-blend-mode: screen, normal;

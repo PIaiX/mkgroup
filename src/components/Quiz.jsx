@@ -77,8 +77,7 @@ const Quiz = () => {
                   </li>
                 </ul>
               </div>
-              <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
-              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
+              <button type='button' className='btn-2 mt-3' onClick={()=>setPage(page+1)}>Далее</button>
             </div>
           </Col>
           <Col xs={4} md={6}>
@@ -119,8 +118,7 @@ const Quiz = () => {
                   </li>
                 </ul>
               </div>
-              <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
-              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
+              <button type='button' className='btn-2 mt-3' onClick={()=>setPage(page+1)}>Далее</button>
             </div>
           </Col>
           <Col xs={4} md={6}>
@@ -161,8 +159,7 @@ const Quiz = () => {
                   </li>
                 </ul>
               </div>
-              <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
-              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
+              <button type='button' className='btn-2 mt-3' onClick={()=>setPage(page+1)}>Далее</button>
             </div>
           </Col>
           <Col xs={4} md={6}>
@@ -203,8 +200,7 @@ const Quiz = () => {
                   </li>
                 </ul>
               </div>
-              <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
-              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
+              <button type='button' className='btn-2 mt-3' onClick={()=>setPage(page+1)}>Далее</button>
             </div>
           </Col>
           <Col xs={4} md={6}>
@@ -245,8 +241,7 @@ const Quiz = () => {
                   </li>
                 </ul>
               </div>
-              <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
-              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
+              <button type='button' className='btn-2 mt-3' onClick={()=>setPage(page+1)}>Далее</button>
             </div>
           </Col>
           <Col xs={4} md={6}>
@@ -260,34 +255,33 @@ const Quiz = () => {
           <Col>
             <label className='figure'>
               <input type="radio" name={'radio'+page} />
-              <div className='figure-img' style={{'--img': "url('imgs/img4.jpg')"}}></div>
+              <div className='figure-img' style={{backgroundImage: "url('imgs/img4.jpg')"}}></div>
               <h5 className='text'>Вариант ответа</h5>
             </label>
           </Col>
           <Col>
             <label className='figure'>
               <input type="radio" name={'radio'+page} />
-              <div className='figure-img' style={{'--img': "url('imgs/img4.jpg')"}}></div>
+              <div className='figure-img' style={{backgroundImage: "url('imgs/img4.jpg')"}}></div>
               <h5 className='text'>Вариант ответа</h5>
             </label>
           </Col>
           <Col>
             <label className='figure'>
               <input type="radio" name={'radio'+page} />
-              <div className='figure-img' style={{'--img': "url('imgs/img4.jpg')"}}></div>
+              <div className='figure-img' style={{backgroundImage: "url('imgs/img4.jpg')"}}></div>
               <h5 className='text'>Вариант ответа</h5>
             </label>
           </Col>
           <Col>
             <label className='figure'>
               <input type="radio" name={'radio'+page} />
-              <div className='figure-img' style={{'--img': "url('imgs/img4.jpg')"}}></div>
+              <div className='figure-img' style={{backgroundImage: "url('imgs/img4.jpg')"}}></div>
               <h5 className='text'>Вариант ответа</h5>
             </label>
           </Col>
           <Col xs={12}>
-            <button type='button' className='btn-2' onClick={()=>setPage(page+1)}>Далее</button>
-            <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
+            <button type='button' className='btn-2 mt-3' onClick={()=>setPage(page+1)}>Далее</button>
           </Col>
         </Row>
       }
@@ -301,8 +295,7 @@ const Quiz = () => {
                 <input type="tel" placeholder='Телефон' className='mb-3'/>
                 <textarea rows="4" placeholder='Комментарий'></textarea>
               </div>
-              <button type='submit' className='btn-2'>Завершить</button>
-              <button type='button' className='btn-1' onClick={()=>setPage(page-1)}>назад</button>
+              <button type='submit' className='btn-2 mt-3'>Завершить</button>
             </div>
           </Col>
           <Col xs={4} md={6}>
