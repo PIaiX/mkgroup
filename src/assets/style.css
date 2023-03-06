@@ -396,7 +396,7 @@ button {
   color: inherit;
 }
 
-.btn, .btn-2, .btn-1 {
+.btn, .btn-3, .btn-2, .btn-1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -426,6 +426,14 @@ button {
 .btn-2:hover, .btn-2:focus, .btn-2:active, .btn-2.active {
   color: #fff;
   background: #4737FF;
+}
+.btn-3 {
+  color: #1F1F1F;
+  background: #FFFFFF;
+}
+.btn-3:hover, .btn-3:focus, .btn-3:active, .btn-3.active {
+  color: #F75C03;
+  background: #F2F2F2;
 }
 
 /* Blocks */
@@ -671,7 +679,7 @@ main {
     width: 100%;
   }
 }
-@media (max-width: 991px) {
+@media (max-width: 575px) {
   .sec-1 .swiper-slide .descr {
     padding: 1em;
   }
@@ -1038,7 +1046,7 @@ footer.mobile nav ul {
 footer.mobile nav ul li {
   margin-top: 0px !important;
 }
-footer.mobile nav ul li a {
+footer.mobile nav ul li a, footer.mobile nav ul li button {
   color: #1F1F1F;
   display: flex;
   flex-direction: column;
@@ -1049,7 +1057,7 @@ footer.mobile nav ul li a {
   position: relative;
   padding-bottom: 0.3em;
 }
-footer.mobile nav ul li a::after {
+footer.mobile nav ul li a::after, footer.mobile nav ul li button::after {
   content: "";
   position: absolute;
   bottom: 0px;
@@ -1060,13 +1068,13 @@ footer.mobile nav ul li a::after {
   background-color: currentColor;
   transition: 300ms ease;
 }
-footer.mobile nav ul li a.active::after {
+footer.mobile nav ul li a.active::after, footer.mobile nav ul li button.active::after {
   width: 100%;
 }
-footer.mobile nav ul li a.active svg {
+footer.mobile nav ul li a.active svg, footer.mobile nav ul li button.active svg {
   color: #1F1F1F;
 }
-footer.mobile nav ul li a svg {
+footer.mobile nav ul li a svg, footer.mobile nav ul li button svg {
   font-size: 1.5em;
   color: #7B7B7B;
   margin-bottom: 0.2em;
@@ -1096,6 +1104,9 @@ footer .bottom {
   margin-top: 2em;
 }
 
+.offcanvas.offcanvas-bottom {
+  height: 100vh;
+}
 .offcanvas.offcanvas-end {
   width: 50%;
 }
@@ -1110,7 +1121,7 @@ footer .bottom {
   }
 }
 .offcanvas-body {
-  padding: calc(var(--h-height) + 1em) 0 calc(var(--f-height) + 1em);
+  padding: var(--h-height) 0 var(--f-height);
   background-image: linear-gradient(to bottom, transparent 0%, #F2F2F2 100%);
 }
 .offcanvas-body .box {
@@ -1122,7 +1133,6 @@ footer .bottom {
   -o-object-fit: cover;
      object-fit: cover;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-  margin-bottom: 1em;
   border-radius: 0.8em;
 }
 @media (max-width: 767px) {
@@ -1157,4 +1167,22 @@ footer .bottom {
 }
 .offcanvas nav ul li a span, .offcanvas nav ul li button span {
   flex: 1;
+}
+
+#map {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  margin-bottom: 1em;
+  border-radius: 0.8em;
+  height: 400px;
+}
+@media (max-width: 767px) {
+  #map {
+    height: 320px;
+  }
+}
+@media (max-width: 575px) {
+  #map {
+    height: 75vw;
+  }
 }/*# sourceMappingURL=style.css.map */

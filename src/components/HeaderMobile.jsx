@@ -13,10 +13,9 @@ import {ReactComponent as IconNews} from '../assets/imgs/icons/news.svg';
 import {ReactComponent as IconPhone} from '../assets/imgs/icons/phone.svg';
 
 const HeaderMobile = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [showMenu, setShowMenu] = useState(false);
+  const handleCloseMenu = () => setShowMenu(false);
+  const handleShowMenu = () => setShowMenu(true);
   return (
     <>
       <header className='mobile'>
@@ -24,12 +23,12 @@ const HeaderMobile = () => {
           <Link to='/' className="logo">
             <IconLogo/>
           </Link>
-          <button type='button' onClick={(show)?handleClose:handleShow} className='menu-btn'>
-            <IconBurger className={(show)?'cross':''}/>
+          <button type='button' onClick={(showMenu)?handleCloseMenu:handleShowMenu} className='menu-btn'>
+            <IconBurger className={(showMenu)?'cross':''}/>
           </button>
         </Container>
       </header>
-      <Offcanvas show={show} onHide={handleClose} placement={'end'}>
+      <Offcanvas show={showMenu} onHide={handleCloseMenu} placement={'end'}>
         <Offcanvas.Body>
           <div className="box">
           <img src="imgs/img2.jpg" alt="img2" className='img'/>
