@@ -9,7 +9,7 @@ import {ReactComponent as IconCase} from '../assets/imgs/icons/case.svg';
 
 const FooterMobile = () => {
   return (
-    <footer>
+    <footer className='mobile'>
       <Container className='h-100'>
         <nav className='h-100'>
           <ul className='h-100'>

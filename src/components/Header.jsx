@@ -45,12 +45,11 @@ const Header = () => {
       <Container>
         <nav>
           <ul className='menu-2'>
-            <li><Link to='/'>Главная</Link></li>
-            <li><Link to='/'>Услуги</Link></li>
-            <li><Link to='/'>Портфолио</Link></li>
-            <li><Link to='/'>О компании</Link></li>
-            <li><Link to='/'>Новости</Link></li>
-            <li><Link to='/'>Контакты</Link></li>
+            <li><Link to='/'>Склады</Link></li>
+            <li><Link to='/'>Фермы</Link></li>
+            <li><Link to='/'>Промышленные здания</Link></li>
+            <li><Link to='/'>Быстровозводимые здания</Link></li>
+            <li><Link to='/'>Опоры ЛЭП</Link></li>
           </ul>
         </nav>
       </Container>

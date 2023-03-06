@@ -91,6 +91,9 @@ $radius: .8em;
 @mixin shadow2 {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
+@mixin shadow3 {
+  filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.03));
+}
 
 /* Typography */
 a, a:hover, a:focus, a:active {
@@ -191,6 +194,7 @@ h6 {
 }
 .color-1 {color: $color-1;}
 .color-2 {color: $color-2;}
+.achromat-4 {color: $achromat-4;}
 .bb-1 {border-bottom: 1px solid currentColor;}
 
 /* Form elements */
@@ -402,6 +406,10 @@ body {
   font-weight: 400;
   color: $achromat-5;
   overflow-x: hidden;
+  position: relative;
+  @media (max-width:991px) {
+    padding: var(--h-height) 0px var(--f-height);
+  }
 }
 
 
@@ -411,8 +419,36 @@ header {
   background-color: $achromat-2;
   border-radius: 0 0 $radius $radius;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.09);
-  @media (max-width:991px) {
+  &.mobile {
     padding: 0;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 1100;
+    .menu-btn {
+      font-size: 1.5em;
+      display: flex;
+      svg {
+        path {
+          transition: $transition;
+          opacity: 1;
+        }
+        &.cross {
+          path:first-child {
+            transform: rotate(-43deg);
+            transform-origin: top right;
+          }
+          path:nth-child(2) {
+            opacity: 0;
+          }
+          path:last-child {
+            transform-origin: bottom right;
+            transform: rotate(43deg);
+          }
+        }
+      }
+    }
   }
   .top {
     @include flex(row, space-between, center, nowrap);
@@ -420,10 +456,6 @@ header {
       height: 100%;
     }
     address {font-size: .75em;}
-    .menu-btn {
-      font-size: 1.5em;
-      display: flex;
-    }
   }
   .middle {
     @include flex(row, space-between, center, nowrap);
@@ -817,7 +849,12 @@ footer {
   color: $achromat-1;
   padding: 2em 0;
   font-weight: 300;
-  @media (max-width:991px) {
+  &.mobile {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 1100;
     filter: drop-shadow(0px -3px 5px rgba(0, 0, 0, 0.09));
     background-color: $achromat-2;
     color: $achromat-5;
@@ -878,5 +915,54 @@ footer {
   .bottom {
     @include flex(row, flex-start, center, nowrap);
     margin-top: 2em;
+  }
+}
+
+.offcanvas {
+  &.offcanvas-end {
+    width: 50%;
+    @media (max-width:767px) {
+      width: 75%;
+    }
+    @media (max-width:575px) {
+      width: 100%;
+    }
+  }
+  &-body {
+    padding: calc(var(--h-height) + 1em) 0 calc(var(--f-height) + 1em);
+    background-image: linear-gradient(to bottom, transparent 0%, $achromat-2 100%);
+    .box {
+      padding: 1em;
+    }
+  }
+  .img {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+    @include shadow2();
+    margin-bottom: 1em;
+    border-radius: $radius;
+    @media (max-width:767px) {
+      height: 28vw;
+    }
+    @media (max-width:575px) {
+      height: 38vw;
+    }
+  }
+  nav {
+    ul {
+      @include list();
+      &:not(:last-child){margin-bottom: 1em;}
+      li {
+        &:not(:last-child){margin-bottom: .15em;}
+        a, button {
+          @include flex(row, flex-start, center, nowrap);
+          @include shadow3();
+          background-color: $achromat-1;
+          padding: 1em;
+          span {flex: 1;}
+        }
+      }
+    }
   }
 }
