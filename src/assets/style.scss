@@ -34,9 +34,10 @@ $main-font: "Inter";
 $color-1: #4737FF;
 $color-1-dark: #1C119C;
 $color-2: #F75C03;
+$color-2-dark: #FF3A0F;
 $color-3: #668CB2;
 $gradient-1: linear-gradient(135.19deg, $color-1 2.39%, $color-1-dark 97.31%);
-$gradient-2: linear-gradient(90.6deg, #FF6812 1.13%, #FF3A0F 98.66%);
+$gradient-2: linear-gradient(90.6deg, $color-2 1.13%, $color-2-dark 98.66%);
 $achromat-1: #FFFFFF;
 $achromat-2: #F2F2F2;
 $achromat-3: #D0D0D0;
@@ -105,7 +106,7 @@ a, a:hover, a:focus, a:active {
   cursor: pointer;
 }
 h1, h2, h3, h4, h5, h6, p, label, span, a, button, form, fieldset, legend, select, input, textarea, button, div, blockquote, cite, figure, figcaption, table, ul, ol, dl, address {
-  line-height: 130%;
+  line-height: 120%;
   margin-bottom: 0px;
   @media (max-width:575px) {
     line-height: 120%;
@@ -355,23 +356,13 @@ button {
   font-size: 1em;
   font-weight: 400;
   border-radius: $radius*2;
-  // &-none {
-  //   padding: 0px;
-  //   border: none;
-  //   &:before, &:after {
-  //     content: unset;
-  //   }
-  //   &:hover, &:focus, &:active, &.active {
-  //     border: none;
-  //   }
-  // }
   &-1 {
     @extend .btn;
     color: #fff;
     background: $color-1;
     &:hover, &:focus, &:active, &.active {
       color: #fff;
-      background: $color-2;
+      background: $color-1-dark;
     }
   }
   &-2 {
@@ -380,7 +371,7 @@ button {
     background: $color-2;
     &:hover, &:focus, &:active, &.active {
       color: #fff;
-      background: $color-1;
+      background: $color-2-dark;
     }
   }
   &-3 {
@@ -453,7 +444,7 @@ button {
 }
 .breadcrumbs {
   color: $achromat-4;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   ul {
     @include list();
     @include flex(row, flex-start, center, wrap);
@@ -489,9 +480,6 @@ body {
 header {
   padding: 1em 0;
   height: var(--h-height);
-  background-color: $achromat-2;
-  border-radius: 0 0 $radius $radius;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.09);
   &.mobile {
     padding: 0;
     position: fixed;
@@ -499,6 +487,9 @@ header {
     left: 0px;
     width: 100%;
     z-index: 1100;
+    background-color: $achromat-2;
+    border-radius: 0 0 $radius $radius;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.09);
     .menu-btn {
       font-size: 1.5em;
       display: flex;
@@ -985,6 +976,31 @@ article {
   }
 }
 
+/* Section 10 */
+.sec-10 {
+  .img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: $radius*1.5;
+    @media (max-width: 1399px) {
+      height: 160px;
+    }
+    @media (max-width: 1199px) {
+      height: 135px;
+    }
+    @media (max-width: 991px) {
+      height: 215px;
+    }
+    @media (max-width: 767px) {
+      height: 155px;
+    }
+    @media (max-width: 575px) {
+      height: 29vw;
+    }
+  }
+}
+
 .quiz {
   background-color: $achromat-2;
   padding: 2em;
@@ -1047,6 +1063,30 @@ article {
   }
 }
 
+.callback {
+  background-image: url(imgs/lines2.png), $gradient-1;
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+  background-position: right center, center center;
+  color: $achromat-1;
+  padding: 2em;
+  border-radius: $radius*1.25;
+  input {
+    max-width: 425px;
+    margin-right: .8em;
+    @media (max-width:575px) {
+      margin-right: 0px;
+      margin-bottom: 1em;
+    }
+  }
+  @media (max-width:767px) {
+    padding: 1.5em;
+  }
+  @media (max-width:575px) {
+    padding: 1em;
+    button {width: 100%;}
+  }
+}
 
 footer {
   height: var(--f-height);

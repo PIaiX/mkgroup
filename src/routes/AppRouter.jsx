@@ -4,6 +4,7 @@ import AppLayout from '../layouts/AppLayout'
 import About from '../pages/About'
 import AllNews from '../pages/AllNews'
 import Contacts from '../pages/Contacts'
+import Delivery from '../pages/Delivery'
 import Home from '../pages/Home'
 import News from '../pages/News'
 import Portfolio from '../pages/Portfolio'
@@ -17,6 +18,7 @@ const router = createHashRouter(
       <Route path="portfolio" element={<Portfolio/>}/>
       <Route path="portfolio/:portfolioId" element={<PortfolioItem/>} />
       <Route path="contacts" element={<Contacts/>}/>
+      <Route path="delivery" element={<Delivery/>}/>
       <Route path="news" element={<AllNews/>}/>
       <Route path="news/:newsId" element={<News/>} />
     </Route>

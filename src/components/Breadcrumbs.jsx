@@ -6,7 +6,7 @@ const Breadcrumbs = () => {
     <nav className='breadcrumbs'>
       <ul>
         <li><Link to="/">Главная</Link></li>
-        <li><Link to="/">Контакты</Link></li>
+        <li><Link to="/">Название страницы</Link></li>
       </ul>
     </nav>
   );
