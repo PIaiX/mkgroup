@@ -16,7 +16,7 @@ const Header = () => {
             <li><Link to='/'>Услуги</Link></li>
             <li><Link to='/'>Портфолио</Link></li>
             <li><Link to='/'>О компании</Link></li>
-            <li><Link to='/'>Новости</Link></li>
+            <li><Link to='/news'>Новости</Link></li>
             <li><Link to='/contacts'>Контакты</Link></li>
           </ul>
         </nav>

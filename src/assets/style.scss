@@ -184,6 +184,7 @@ h6 {
   &-8 {font-weight: 800;}
   &-9 {font-weight: 900;}
 }
+.black {color: #000;}
 .color-1 {color: $color-1;}
 .color-2 {color: $color-2;}
 .achromat-4 {color: $achromat-4;}
@@ -399,8 +400,8 @@ button {
 
 .page-title {
   width: 100%;
-  height: 200px;
-  min-height: fit-content;
+  min-height: 200px;
+  height: fit-content;
   background-color: $color-1;
   color: $achromat-1;
   border-radius: $radius*1.5;
@@ -411,20 +412,20 @@ button {
   @include safariFix();
   @include shadow();
   @media (max-width:1399px) {
-    height: 180px;
+    min-height: 180px;
   }
   @media (max-width:1199px) {
-    height: 150px;
+    min-height: 150px;
   }
   @media (max-width:991px) {
-    height: 120px;
+    min-height: 120px;
   }
   @media (max-width:767px) {
-    height: 100px;
+    min-height: 100px;
     padding: 1em 1.5em;
   }
   @media (max-width:575px) {
-    height: 85px;
+    min-height: 85px;
   }
   &::before {
     content: '';
@@ -438,9 +439,16 @@ button {
     object-fit: cover;
     filter: saturate(0);
   }
-  h1 {
+  .text {
     position: relative;
     z-index: 3;
+    width: 60%;
+    @media (max-width:991px) {
+      width: 80%;
+    }
+    @media (max-width:767px) {
+      width: 100%;
+    }
   }
 }
 
@@ -846,6 +854,58 @@ main {
   }
 }
 
+/* Section 4 */
+#map {
+  @include shadow2();
+  width: 100%;
+  margin-bottom: 1em;
+  border-radius: $radius;
+  height: 400px;
+  @media (max-width:767px) {
+    height: 320px;
+  }
+  @media (max-width:575px) {
+    height: 75vw;
+  }
+}
+
+/* Section 5 */
+article {
+  margin-bottom: 2em;
+  @media (max-width:575px) {
+    font-size: .8em;
+  }
+  img {
+    width: 100%;
+    height: var(--img-height);
+    border-radius: $radius*1.5;
+  }
+  p {
+    @include clamp(4, 1.2em);
+  }
+  .btn-2 {
+    margin-top: 2em;
+    @media (max-width:575px) {
+      margin-top: 1em;
+    }
+  }
+}
+
+/* Section 6 */
+.sec-6 {
+  .img {
+    float: right;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    width: 48%;
+    border-radius: $radius;
+  }
+  p {
+    line-height: 120%;
+    margin-bottom: 1.5em;
+  }
+}
+
 .quiz {
   background-color: $achromat-2;
   padding: 2em;
@@ -1032,18 +1092,5 @@ footer {
         }
       }
     }
-  }
-}
-#map {
-  @include shadow2();
-  width: 100%;
-  margin-bottom: 1em;
-  border-radius: $radius;
-  height: 400px;
-  @media (max-width:767px) {
-    height: 320px;
-  }
-  @media (max-width:575px) {
-    height: 75vw;
   }
 }
