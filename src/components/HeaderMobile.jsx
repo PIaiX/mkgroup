@@ -75,7 +75,7 @@ const HeaderMobile = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/'>
+                <Link to='/contacts'>
                   <IconPhone className='color-2 me-3'/>
                   <span>Контакты</span>
                   <IconArrow className='achromat-4 fs-08'/>

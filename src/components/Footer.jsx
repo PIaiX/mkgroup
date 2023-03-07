@@ -16,7 +16,7 @@ const Footer = () => {
               <li><Link to='/'>Портфолио</Link></li>
               <li><Link to='/'>Доставка и оплата</Link></li>
               <li><Link to='/'>О компании</Link></li>
-              <li><Link to='/'>Контакты</Link></li>
+              <li><Link to='/contacts'>Контакты</Link></li>
             </ul>
           </Col>
           <Col md={3}>

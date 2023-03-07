@@ -32,9 +32,10 @@
 
 $main-font: "Inter";
 $color-1: #4737FF;
+$color-1-dark: #1C119C;
 $color-2: #F75C03;
 $color-3: #668CB2;
-$gradient-1: linear-gradient(135.19deg, #4737FF 2.39%, #1C119C 97.31%);
+$gradient-1: linear-gradient(135.19deg, $color-1 2.39%, $color-1-dark 97.31%);
 $gradient-2: linear-gradient(90.6deg, #FF6812 1.13%, #FF3A0F 98.66%);
 $achromat-1: #FFFFFF;
 $achromat-2: #F2F2F2;
@@ -111,17 +112,7 @@ h1, h2, h3, h4, h5, h6, p, label, span, a, button, form, fieldset, legend, selec
   }
 }
 
-h1 {
-  text-align: left;
-  font-size: 2em;
-  font-weight: 700;
-  line-height: 100%;
-  margin-bottom: 1em;
-  @media (max-width:575px) {
-    font-size: 1.5em;
-  }
-}
-h2 {
+h1, h2 {
   text-align: left;
   font-size: 1.5em;
   font-weight: 400;
@@ -405,6 +396,72 @@ button {
 /* Blocks */
 .flex-1 {flex:1;}
 .mb-35 {margin-bottom: 3.5em;}
+
+.page-title {
+  width: 100%;
+  height: 200px;
+  min-height: fit-content;
+  background-color: $color-1;
+  color: $achromat-1;
+  border-radius: $radius*1.5;
+  margin-bottom: 2em;
+  padding: 1.5em 2em;
+  position: relative;
+  overflow: hidden;
+  @include safariFix();
+  @include shadow();
+  @media (max-width:1399px) {
+    height: 180px;
+  }
+  @media (max-width:1199px) {
+    height: 150px;
+  }
+  @media (max-width:991px) {
+    height: 120px;
+  }
+  @media (max-width:767px) {
+    height: 100px;
+    padding: 1em 1.5em;
+  }
+  @media (max-width:575px) {
+    height: 85px;
+  }
+  &::before {
+    content: '';
+    @include absBG();
+    background: linear-gradient(to right, $color-1-dark -19.7%, $color-1 33.18%, transparent 100.76%);
+    z-index: 2;
+  }
+  img {
+    @include absBG();
+    left: 10%;
+    object-fit: cover;
+    filter: saturate(0);
+  }
+  h1 {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+.breadcrumbs {
+  color: $achromat-4;
+  margin-bottom: 1em;
+  ul {
+    @include list();
+    @include flex(row, flex-start, center, wrap);
+    li {
+      &:not(:first-child){
+        margin-left: .5em;
+        &::before {
+          content: '>';
+          margin-right: .5em;
+        }
+      }
+    }
+  }
+}
+
 
 body {
   margin: 0;

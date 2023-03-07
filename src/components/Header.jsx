@@ -17,7 +17,7 @@ const Header = () => {
             <li><Link to='/'>Портфолио</Link></li>
             <li><Link to='/'>О компании</Link></li>
             <li><Link to='/'>Новости</Link></li>
-            <li><Link to='/'>Контакты</Link></li>
+            <li><Link to='/contacts'>Контакты</Link></li>
           </ul>
         </nav>
         <address>г. Казань, ул. Родины 24, оф. 1</address>
