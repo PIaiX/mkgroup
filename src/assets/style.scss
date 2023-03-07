@@ -451,7 +451,6 @@ button {
     }
   }
 }
-
 .breadcrumbs {
   color: $achromat-4;
   margin-bottom: 1em;
@@ -903,6 +902,37 @@ article {
   p {
     line-height: 120%;
     margin-bottom: 1.5em;
+  }
+}
+
+/* Section 7 */
+.sec-7 {
+  .img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: $radius;
+    @media (max-width: 1399px) {
+      height: 340px;
+    }
+    @media (max-width: 1199px) {
+      height: 280px;
+    }
+    @media (max-width: 991px) {
+      height: 335px;
+    }
+    @media (max-width: 767px) {
+      height: 245px;
+    }
+    @media (max-width: 575px) {
+      height: 43vw;
+    }
+  }
+  .icon {
+    width: 120px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: .5em;
   }
 }
 
