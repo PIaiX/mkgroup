@@ -14,7 +14,7 @@ const Header = () => {
           <ul className='menu-1'>
             <li><Link to='/'>Главная</Link></li>
             <li><Link to='/'>Услуги</Link></li>
-            <li><Link to='/'>Портфолио</Link></li>
+            <li><Link to='/portfolio'>Портфолио</Link></li>
             <li><Link to='/about'>О компании</Link></li>
             <li><Link to='/news'>Новости</Link></li>
             <li><Link to='/contacts'>Контакты</Link></li>

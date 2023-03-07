@@ -13,10 +13,10 @@ const AllNews = () => {
         <section className='sec-5'>
           <PageTitle title={'Новости'} text={'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum '}/>
 
-          <Article/>
-          <Article/>
-          <Article/>
-          <Article/>
+          <Article className='news'/>
+          <Article className='news'/>
+          <Article className='news'/>
+          <Article className='news'/>
         </section>
       </Container>
     </main>

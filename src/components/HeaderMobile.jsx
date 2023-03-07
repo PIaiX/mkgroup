@@ -52,7 +52,7 @@ const HeaderMobile = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/'>
+                <Link to='/portfolio'>
                   <IconCase className='color-2 me-3'/>
                   <span>Портфолио</span>
                   <IconArrow className='achromat-4 fs-08'/>

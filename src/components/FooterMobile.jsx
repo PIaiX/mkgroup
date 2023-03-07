@@ -28,7 +28,7 @@ const FooterMobile = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/'>
+                <Link to='/portfolio'>
                   <IconCase/>
                   <h6>Портфолио</h6>
                 </Link>
