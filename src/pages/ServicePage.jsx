@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Breadcrumbs from '../components/Breadcrumbs';
 import PageTitle from '../components/utils/PageTitle';
+import Callback2 from '../components/forms/Callback2';
 
 const ServicePage = () => {
   return (
@@ -86,14 +87,7 @@ const ServicePage = () => {
               </div>
             </Col>
             <Col xs={12} sm={8} md={6} lg={4}>
-              <form action="" className='callback-2'>
-                <h2>Не нашли что искали?</h2>
-                <p className='mb-4 mb-xl-5'>Задайте интересующий вопрос менеджеру и получите ответ в течение 15 минут</p>
-                <input type="text" placeholder='Имя' className='mb-3'/>
-                <input type="text" placeholder='+7 ___-___-__-__' className='mb-3'/>
-                <p className='fs-075'>Нажимая кнопку “Отправить”, вы даете согласие на обработку персональных данных</p>
-                <button type='submit' className='btn-2 mt-4 mt-x-5'>Отправить</button>
-              </form>
+              <Callback2/>
             </Col>
           </Row>
         </section>

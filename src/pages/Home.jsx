@@ -78,8 +78,8 @@ const Home = () => {
                 </div>
               </div>
             </SwiperSlide>
-            <div class="swiper-button-prev"><IconPrev/></div>
-            <div class="swiper-button-next"><IconNext/></div>
+            <div className="swiper-button-prev"><IconPrev/></div>
+            <div className="swiper-button-next"><IconNext/></div>
           </Swiper>
         </section>
 

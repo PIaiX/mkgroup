@@ -51,8 +51,8 @@ const PortfolioItem = () => {
               <SwiperSlide>
               <img src="imgs/img6.jpg" alt="img6" className='img-fluid'/>
               </SwiperSlide>
-              <div class="swiper-button-prev"><IconPrev/></div>
-              <div class="swiper-button-next"><IconNext/></div>
+              <div className="swiper-button-prev"><IconPrev/></div>
+              <div className="swiper-button-next"><IconNext/></div>
             </Swiper>
           </div>
           <Row xs={1} lg={2} className='flex-lg-row-reverse px-sm-5'>

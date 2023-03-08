@@ -124,7 +124,7 @@ h1, h2 {
   text-align: left;
   font-size: 1.5em;
   font-weight: 400;
-  margin-bottom: .5em;
+  margin-bottom: 1em;
   @media (max-width:575px) {
     font-size: 1.25em;
   }
@@ -390,6 +390,17 @@ button {
       background: $achromat-2;
     }
   }
+  &-4 {
+    @extend .btn;
+    color: $achromat-5;
+    background: transparent;
+    border: 1px solid $color-2;
+    &:hover, &:focus, &:active, &.active {
+      color: $achromat-5;
+      background: $color-2;
+      border: 1px solid $color-2;
+    }
+  }
 }
 /* forms */
 .callback-2 {
@@ -430,7 +441,12 @@ button {
 
 /* Blocks */
 .flex-1 {flex:1;}
-.mb-35 {margin-bottom: 3.5em;}
+.mb-35 {
+  margin-bottom: 3.5em;
+  @media (max-width:575px) {
+    margin-bottom: 2.5em;
+  }
+}
 
 .page-title {
   width: 100%;
@@ -482,6 +498,38 @@ button {
     }
     @media (max-width:767px) {
       width: 100%;
+    }
+  }
+  &-2 {
+    @extend .page-title;
+    min-height: 150px;
+    @media (max-width:991px) {
+      min-height: 120px;
+    }
+    @media (max-width:767px) {
+      min-height: 100px;
+    }
+    @media (max-width:575px) {
+      min-height: 85px;
+    }
+    h1 {
+      font-size: 2em;
+      @media (max-width:575px) {
+        font-size: 1.5em;
+      }
+    }
+    img {
+      left: 5%;
+      object-position: 50% 65%;
+    }
+    &::before { 
+      background: linear-gradient(to right, $color-2 30%, transparent 70%);
+      @media (max-width:767px) {
+        background: linear-gradient(to right, $color-2 40%, transparent 85%);
+      }
+      @media (max-width:575px) {
+        background: linear-gradient(to right, $color-2 50%, transparent 100%);
+      }
     }
   }
 }
@@ -538,6 +586,30 @@ button {
     }
   }
 }
+.modal-xl {
+  --bs-modal-width: 100%;
+}
+@media (min-width: 576px) {
+  .modal-xl {
+    --bs-modal-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .modal-xl {
+    --bs-modal-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-xl {
+    --bs-modal-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-xl {
+    --bs-modal-width: 1140px;
+  }
+}
+
 
 
 body {
@@ -663,6 +735,14 @@ header {
 main {
   min-height: calc(100vh - var(--h-height) - var(--f-height));
   padding: 2em 0;
+  hr {
+    height: 1px;
+    background-color: $achromat-3;
+    width: 100%;
+    border: none;
+    margin: 1em 0;
+    opacity: 1;
+  }
 }
 
 .swiper {
@@ -682,6 +762,13 @@ main {
     }
     &-prev {left: .8em;}
     &-next {right: .8em;}
+  }
+  &-scrollbar {
+    background-color: $achromat-3;
+    height: 10px !important;
+    &-drag {
+      background-color: $achromat-4;
+    }
   }
 }
 
@@ -893,6 +980,10 @@ main {
 }
 .project-card {
   position: relative;
+  transition: $transition;
+  &:hover {
+    transform: translateY(-7%);
+  }
   img {
     position: relative;
     z-index: 1;
@@ -1100,6 +1191,59 @@ article {
   }
 }
 
+/* Section 12 */
+.sec-12 {
+  .main-img {
+    width: 100%;
+    height: 465px;
+    object-fit: cover;
+    border-radius: $radius;
+    @include shadow();
+    @media (max-width:1399px) {
+      height: 400px;
+    }
+    @media (max-width:1199px) {
+      height: 350px;
+    }
+    @media (max-width:991px) {
+      height: 500px;
+    }
+    @media (max-width:767px) {
+      height: 365px;
+    }
+    @media (max-width:575px) {
+      height: 65vw;
+    }
+  }
+  .swiper {
+    padding-top: 1em;
+    padding-bottom: 2em;
+    img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      border-radius: $radius;
+      @include shadow();
+      @media (max-width:1399px) {
+        height: 255px;
+      }
+      @media (max-width:1199px) {
+        height: 215px;
+      }
+      @media (max-width:991px) {
+        height: 300px;
+      }
+      @media (max-width:767px) {
+        height: 245px;
+      }
+      @media (max-width:575px) {
+        height: 42vw;
+      }
+    }
+  }
+}
+
+
 .quiz {
   background-color: $achromat-2;
   padding: 2em;
@@ -1282,6 +1426,34 @@ footer {
           background-color: $achromat-1;
           padding: 1em;
           span {flex: 1;}
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  &.img-modal {
+    background-color: transparent;
+    .modal-content {
+      background-color: transparent;
+      border: none;
+      padding-top: 3em;
+      .modal-body{
+        padding: 0px;
+        position: relative;
+        .close {
+          position: absolute;
+          top: 1em;
+          right: 1em;
+          font-size: 1.5em;
+          color: red;
+        }
+        img {
+          display: block;
+          width: auto;
+          max-width: 100%;
+          margin: 0 auto;
         }
       }
     }

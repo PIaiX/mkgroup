@@ -28,10 +28,10 @@ const Header = () => {
           <IconLogo/>
           <h6>Описание деятельности <br/>или слоган компании</h6>
         </Link>
-        <button type='button' className='btn-1 align-items-baseline'>
+        <Link to='/catalog' className='btn-1 align-items-baseline'>
           <IconGrid className='fs-07'/>
           <span className='ms-2'>Каталог</span>
-        </button>
+        </Link>
         <form action="" className='form-search'>
           <input type="search" placeholder='Я ищу...'/>
           <button type='submit'><IconMagnifier/></button>
