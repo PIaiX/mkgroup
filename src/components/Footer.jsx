@@ -12,7 +12,7 @@ const Footer = () => {
         <Row>
           <Col md={3}>
             <ul>
-              <li><Link to='/'>Услуги</Link></li>
+              <li><Link to='/services'>Услуги</Link></li>
               <li><Link to='/portfolio'>Портфолио</Link></li>
               <li><Link to='/delivery'>Доставка и оплата</Link></li>
               <li><Link to='/about'>О компании</Link></li>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import {ReactComponent as IconPhone} from '../assets/imgs/icons/phone.svg';
 import {ReactComponent as IconWapp} from '../assets/imgs/icons/wapp.svg';
 import {ReactComponent as IconServices} from '../assets/imgs/icons/services.svg';
@@ -22,28 +22,28 @@ const FooterMobile = () => {
           <nav className='h-100'>
             <ul className='h-100'>
               <li>
-                <Link to='/' className='active'>
+                <NavLink to='/'>
                   <IconHome/>
                   <h6>Главная</h6>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to='/portfolio'>
+                <NavLink to='/portfolio'>
                   <IconCase/>
                   <h6>Портфолио</h6>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to='/'>
+                <NavLink to='/catalog'>
                   <IconCatalog/>
                   <h6>Каталог</h6>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to='/'>
+                <NavLink to='/services'>
                   <IconServices/>
                   <h6>Услуги</h6>
-                </Link>
+                </NavLink>
               </li>
               <li>
                 <button type='button' onClick={(showContacts)?handleCloseContacts:handleShowContacts}>

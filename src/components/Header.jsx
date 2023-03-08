@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import {ReactComponent as IconLogo} from '../assets/imgs/logo.svg';
 import {ReactComponent as IconPhone} from '../assets/imgs/icons/phone.svg';
 import {ReactComponent as IconGrid} from '../assets/imgs/icons/grid.svg';
@@ -12,12 +12,12 @@ const Header = () => {
       <Container className='top'>
         <nav>
           <ul className='menu-1'>
-            <li><Link to='/'>Главная</Link></li>
-            <li><Link to='/'>Услуги</Link></li>
-            <li><Link to='/portfolio'>Портфолио</Link></li>
-            <li><Link to='/about'>О компании</Link></li>
-            <li><Link to='/news'>Новости</Link></li>
-            <li><Link to='/contacts'>Контакты</Link></li>
+            <li><NavLink to='/'>Главная</NavLink></li>
+            <li><NavLink to='/services'>Услуги</NavLink></li>
+            <li><NavLink to='/portfolio'>Портфолио</NavLink></li>
+            <li><NavLink to='/about'>О компании</NavLink></li>
+            <li><NavLink to='/news'>Новости</NavLink></li>
+            <li><NavLink to='/contacts'>Контакты</NavLink></li>
           </ul>
         </nav>
         <address>г. Казань, ул. Родины 24, оф. 1</address>

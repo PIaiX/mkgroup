@@ -33,7 +33,7 @@ const HeaderMobile = () => {
           <div className="box">
           <img src="imgs/img2.jpg" alt="img2" className='img'/>
           </div>
-          <nav>
+          <nav onClick={handleCloseMenu}>
             <ul>
               <li>
                 <Link to='/'>
@@ -45,7 +45,7 @@ const HeaderMobile = () => {
             </ul>
             <ul>
               <li>
-                <Link to='/'>
+                <Link to='/services'>
                   <IconServices className='color-2 me-3'/>
                   <span>Услуги</span>
                   <IconArrow className='achromat-4 fs-08'/>
