@@ -2,21 +2,28 @@
 
 // "homepage": "https://ngf93.github.io/mkgroup",
 :root {
-  --h-height: 240px;
+  --h-top: 70px;
+  --h-middle: 110px;
+  --h-bottom: 70px;
+  --h-height: calc(var(--h-top) + var(--h-middle) + var(--h-bottom));
   --f-height: 435px;
   --img-height: 300px;
   --img-height-4: 400px;
   --font-size: 24px;
   --color-1: #4737FF;
   @media (max-width: 1399px) {
-    --h-height: 221px;
+    --h-top: 60px;
+    --h-middle: 100px;
+    --h-bottom: 60px;
     --f-height: 380px;
     --img-height: 260px;
     --img-height-4: 340px;
     --font-size: 20px;
   }
   @media (max-width: 1199px) {
-    --h-height: 212px;
+    --h-top: 60px;
+    --h-middle: 90px;
+    --h-bottom: 60px;
     --f-height: 350px;
     --img-height: 215px;
     --img-height-4: 280px;
@@ -629,9 +636,10 @@ body {
 
 
 header {
-  padding: 1em 0;
-  height: var(--h-height);
+  // padding: 1em 0;
+  // height: var(--h-height);
   &.mobile {
+    height: var(--h-height);
     padding: 0;
     position: fixed;
     top: 0px;
@@ -641,6 +649,9 @@ header {
     background-color: $achromat-2;
     border-radius: 0 0 $radius $radius;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.09);
+    .container {
+      @include flex(row, space-between, center, nowrap);
+    }
     .menu-btn {
       font-size: 1.5em;
       display: flex;
@@ -665,55 +676,80 @@ header {
       }
     }
   }
-  .top {
-    @include flex(row, space-between, center, nowrap);
-    @media (max-width:991px) {
+  &.top {
+    height: var(--h-top);
+    .container {
       height: 100%;
-    }
-    address {font-size: .75em;}
-  }
-  .middle {
-    @include flex(row, space-between, center, nowrap);
-    .form-search {
-      width: 390px;
-      border: 1px solid $color-1;
-      border-radius: $radius*2;
-      position: relative;
-      @media (max-width:1199px) {
-        width: 260px;
-      }
-      button {
-        color: $color-1;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        height: 100%;
-        width: 2em;
-      }
-    }
-  }
-  ul {
-    @include list();
-    &.menu-1 {
-      @include flex(row, flex-start, center, nowrap);
-      li {
-        &:not(:first-child){margin-left: 1em;}
-        a {
-          color: $achromat-4;
-          transition: $transition;
-          &:hover, &:focus, &:active, &.active {
-            color: $color-1;
+      @include flex(row, space-between, center, nowrap);
+      address {font-size: .75em;}
+      ul {
+        @include list();
+        &.menu-1 {
+          @include flex(row, flex-start, center, nowrap);
+          li {
+            &:not(:first-child){margin-left: 1em;}
+            a {
+              color: $achromat-4;
+              transition: $transition;
+              &:hover, &:focus, &:active, &.active {
+                color: $color-1;
+              }
+            }
           }
         }
       }
     }
-    &.menu-2 {
+    @media (max-width:991px) {
+      height: 100%;
+    }
+  }
+  &.middle {
+    height: var(--h-middle);
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 100;
+    padding: 1em 0;
+    background-color: $achromat-1;
+    border-top: 1px solid $achromat-3;
+    border-bottom: 1px solid $achromat-3;
+    .container {
+      height: 100%;
       @include flex(row, space-between, center, nowrap);
-      a {
-        color: $achromat-5;
-        transition: $transition;
-        &:hover, &:focus, &:active, &.active {
+      .form-search {
+        width: 390px;
+        border: 1px solid $color-1;
+        border-radius: $radius*2;
+        position: relative;
+        @media (max-width:1199px) {
+          width: 260px;
+        }
+        button {
           color: $color-1;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          height: 100%;
+          width: 2em;
+        }
+      }
+    }
+  }
+  &.bottom {
+    height: var(--h-bottom);
+    .container {
+      ul {
+        @include list();
+        &.menu-2 {
+          @include flex(row, space-between, center, nowrap);
+          a {
+            color: $achromat-5;
+            transition: $transition;
+            &:hover, &:focus, &:active, &.active {
+              color: $color-1;
+            }
+          }
         }
       }
     }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import {Link, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {ReactComponent as IconPhone} from '../assets/imgs/icons/phone.svg';
 import {ReactComponent as IconWapp} from '../assets/imgs/icons/wapp.svg';
 import {ReactComponent as IconServices} from '../assets/imgs/icons/services.svg';

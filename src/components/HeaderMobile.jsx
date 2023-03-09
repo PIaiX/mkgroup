@@ -19,7 +19,7 @@ const HeaderMobile = () => {
   return (
     <>
       <header className='mobile'>
-        <Container className='top'>
+        <Container className='h-100'>
           <Link to='/' className="logo">
             <IconLogo/>
           </Link>

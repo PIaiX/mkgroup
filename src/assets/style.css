@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 :root {
-  --h-height: 240px;
+  --h-top: 70px;
+  --h-middle: 110px;
+  --h-bottom: 70px;
+  --h-height: calc(var(--h-top) + var(--h-middle) + var(--h-bottom));
   --f-height: 435px;
   --img-height: 300px;
   --img-height-4: 400px;
@@ -9,7 +12,9 @@
 }
 @media (max-width: 1399px) {
   :root {
-    --h-height: 221px;
+    --h-top: 60px;
+    --h-middle: 100px;
+    --h-bottom: 60px;
     --f-height: 380px;
     --img-height: 260px;
     --img-height-4: 340px;
@@ -18,7 +23,9 @@
 }
 @media (max-width: 1199px) {
   :root {
-    --h-height: 212px;
+    --h-top: 60px;
+    --h-middle: 90px;
+    --h-bottom: 60px;
     --f-height: 350px;
     --img-height: 215px;
     --img-height-4: 280px;
@@ -725,11 +732,8 @@ body {
   }
 }
 
-header {
-  padding: 1em 0;
-  height: var(--h-height);
-}
 header.mobile {
+  height: var(--h-height);
   padding: 0;
   position: fixed;
   top: 0px;
@@ -739,6 +743,13 @@ header.mobile {
   background-color: #F2F2F2;
   border-radius: 0 0 0.8em 0.8em;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.09);
+}
+header.mobile .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 header.mobile .menu-btn {
   font-size: 1.5em;
@@ -759,40 +770,78 @@ header.mobile .menu-btn svg.cross path:last-child {
   transform-origin: bottom right;
   transform: rotate(43deg);
 }
-header .top {
+header.top {
+  height: var(--h-top);
+}
+header.top .container {
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
 }
+header.top .container address {
+  font-size: 0.75em;
+}
+header.top .container ul {
+  list-style: none;
+  padding-left: 0px;
+}
+header.top .container ul.menu-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+header.top .container ul.menu-1 li:not(:first-child) {
+  margin-left: 1em;
+}
+header.top .container ul.menu-1 li a {
+  color: #7B7B7B;
+  transition: 300ms ease;
+}
+header.top .container ul.menu-1 li a:hover, header.top .container ul.menu-1 li a:focus, header.top .container ul.menu-1 li a:active, header.top .container ul.menu-1 li a.active {
+  color: #4737FF;
+}
 @media (max-width: 991px) {
-  header .top {
+  header.top {
     height: 100%;
   }
 }
-header .top address {
-  font-size: 0.75em;
+header.middle {
+  height: var(--h-middle);
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 100;
+  padding: 1em 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid #D0D0D0;
+  border-bottom: 1px solid #D0D0D0;
 }
-header .middle {
+header.middle .container {
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
 }
-header .middle .form-search {
+header.middle .container .form-search {
   width: 390px;
   border: 1px solid #4737FF;
   border-radius: 1.6em;
   position: relative;
 }
 @media (max-width: 1199px) {
-  header .middle .form-search {
+  header.middle .container .form-search {
     width: 260px;
   }
 }
-header .middle .form-search button {
+header.middle .container .form-search button {
   color: #4737FF;
   position: absolute;
   top: 0px;
@@ -800,39 +849,25 @@ header .middle .form-search button {
   height: 100%;
   width: 2em;
 }
-header ul {
+header.bottom {
+  height: var(--h-bottom);
+}
+header.bottom .container ul {
   list-style: none;
   padding-left: 0px;
 }
-header ul.menu-1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-header ul.menu-1 li:not(:first-child) {
-  margin-left: 1em;
-}
-header ul.menu-1 li a {
-  color: #7B7B7B;
-  transition: 300ms ease;
-}
-header ul.menu-1 li a:hover, header ul.menu-1 li a:focus, header ul.menu-1 li a:active, header ul.menu-1 li a.active {
-  color: #4737FF;
-}
-header ul.menu-2 {
+header.bottom .container ul.menu-2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
 }
-header ul.menu-2 a {
+header.bottom .container ul.menu-2 a {
   color: #1F1F1F;
   transition: 300ms ease;
 }
-header ul.menu-2 a:hover, header ul.menu-2 a:focus, header ul.menu-2 a:active, header ul.menu-2 a.active {
+header.bottom .container ul.menu-2 a:hover, header.bottom .container ul.menu-2 a:focus, header.bottom .container ul.menu-2 a:active, header.bottom .container ul.menu-2 a.active {
   color: #4737FF;
 }
 

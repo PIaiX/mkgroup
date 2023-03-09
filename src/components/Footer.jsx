@@ -21,20 +21,20 @@ const Footer = () => {
           </Col>
           <Col md={3}>
             <ul>
-              <li><Link to='/'>Склады</Link></li>
-              <li><Link to='/'>Фермы</Link></li>
-              <li><Link to='/'>Офисы</Link></li>
-              <li><Link to='/'>Быстровозводимые здания</Link></li>
-              <li><Link to='/'>Кафе и рестораны</Link></li>
+              <li><Link to='/catalog/categorie'>Склады</Link></li>
+              <li><Link to='/catalog/categorie'>Фермы</Link></li>
+              <li><Link to='/catalog/categorie'>Офисы</Link></li>
+              <li><Link to='/catalog/categorie'>Быстровозводимые здания</Link></li>
+              <li><Link to='/catalog/categorie'>Кафе и рестораны</Link></li>
             </ul>
           </Col>
           <Col md={2}>
             <ul>
-              <li><Link to='/'>Категория</Link></li>
-              <li><Link to='/'>Категория</Link></li>
-              <li><Link to='/'>Категория</Link></li>
-              <li><Link to='/'>Категория</Link></li>
-              <li><Link to='/'>Категория</Link></li>
+              <li><Link to='/catalog/categorie'>Категория</Link></li>
+              <li><Link to='/catalog/categorie'>Категория</Link></li>
+              <li><Link to='/catalog/categorie'>Категория</Link></li>
+              <li><Link to='/catalog/categorie'>Категория</Link></li>
+              <li><Link to='/catalog/categorie'>Категория</Link></li>
             </ul>
           </Col>
           <Col md={4}>

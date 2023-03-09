@@ -8,8 +8,9 @@ import {ReactComponent as IconMagnifier} from '../assets/imgs/icons/magnifier.sv
 
 const Header = () => {
   return (
-    <header>
-      <Container className='top'>
+    <>
+    <header className='top'>
+      <Container>
         <nav>
           <ul className='menu-1'>
             <li><NavLink to='/'>Главная</NavLink></li>
@@ -22,8 +23,9 @@ const Header = () => {
         </nav>
         <address>г. Казань, ул. Родины 24, оф. 1</address>
       </Container>
-      <hr />
-      <Container className='middle'>
+    </header>
+    <header className='middle'>
+      <Container>
         <Link to='/' className="logo">
           <IconLogo/>
           <h6>Описание деятельности <br/>или слоган компании</h6>
@@ -41,19 +43,21 @@ const Header = () => {
           <IconPhone className='color-1'/>
         </a>
       </Container>
-      <hr />
-      <Container>
-        <nav>
+    </header>
+    <header className='bottom'>
+      <Container className='h-100 d-flex align-items-center'>
+        <nav className='w-100'>
           <ul className='menu-2'>
-            <li><Link to='/'>Склады</Link></li>
-            <li><Link to='/'>Фермы</Link></li>
-            <li><Link to='/'>Промышленные здания</Link></li>
-            <li><Link to='/'>Быстровозводимые здания</Link></li>
-            <li><Link to='/'>Опоры ЛЭП</Link></li>
+            <li><Link to='/catalog/categorie'>Склады</Link></li>
+            <li><Link to='/catalog/categorie'>Фермы</Link></li>
+            <li><Link to='/catalog/categorie'>Промышленные здания</Link></li>
+            <li><Link to='/catalog/categorie'>Быстровозводимые здания</Link></li>
+            <li><Link to='/catalog/categorie'>Опоры ЛЭП</Link></li>
           </ul>
         </nav>
       </Container>
     </header>
+    </>
   );
 };
 
