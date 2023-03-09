@@ -18,6 +18,7 @@ import 'swiper/css/scrollbar';
 
 import { IoHelpCircle } from "react-icons/io5";
 import ImgModal from '../components/utils/ImgModal';
+import Callback3 from '../components/forms/Callback3';
 
 const ProjectPage = () => {
   const [imgs, setImgs] = useState([
@@ -114,7 +115,7 @@ const ProjectPage = () => {
                   </tr>
                 </tbody>
               </Table>
-              <button type='button' className='btn-2 mb-4 mb-sm-5'>Получить консультацию</button>
+              <Callback3 btnClassName={'btn-2 mb-4 mb-sm-5'} btnText={'Получить консультацию'}/>
               <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
             </Col>
             <Col xs={12} xl={10} className='mt-4 mt-sm-5'>

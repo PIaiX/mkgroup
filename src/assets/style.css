@@ -1784,26 +1784,26 @@ footer .bottom {
   flex: 1;
 }
 
-.modal.img-modal {
+.modal {
   background-color: transparent;
 }
-.modal.img-modal .modal-content {
+.modal .modal-content {
   background-color: transparent;
   border: none;
   padding-top: 3em;
 }
-.modal.img-modal .modal-content .modal-body {
+.modal .modal-content .modal-body {
   padding: 0px;
   position: relative;
 }
-.modal.img-modal .modal-content .modal-body .close {
+.modal .modal-content .modal-body .close {
   position: absolute;
   top: 1em;
   right: 1em;
   font-size: 1.5em;
   color: red;
 }
-.modal.img-modal .modal-content .modal-body img {
+.modal .modal-content .modal-body img {
   display: block;
   width: auto;
   max-width: 100%;
