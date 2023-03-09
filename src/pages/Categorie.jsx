@@ -6,8 +6,9 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import PageTitle from '../components/utils/PageTitle';
 import Callback2 from '../components/forms/Callback2';
 import ProjectCard from '../components/ProjectCard';
-import {Link, useLocation, useParams} from 'react-router-dom';
-import {getCategories, getManyAds} from "../services/AdsService";
+import {useLocation} from 'react-router-dom';
+import {getManyAds} from "../services/AdsService";
+import {useSelector} from "react-redux";
 
 //delete consts
 const a=[{
@@ -63,78 +64,14 @@ const a=[{
     priceFrom:2333,
     amount:2
   },]
-const b=[{
-    id:0,
-    name: 'Ангары'
-  },
-  {
-    id:1,
-    name: 'Склады'
-  },
-  {
-    id:2,
-    name: 'Фермы'
-  },
-  {
-    id:3,
-    name: 'Офисы'
-  },
-  {
-    id:4,
-    name: 'Промышленные здания'
-  },
-  {
-    id:5,
-    name: 'Торговые центры'
-  },
-  {
-    id:6,
-    name: 'СТО и Автосервисы'
-  },
-  {
-    id:7,
-    name: 'Быстровозводимые здания'
-  },
-  {
-    id:8,
-    name: 'Кафе и рестораны'
-  },
-  {
-    id:9,
-    name: 'Центры логистики'
-  },
-  {
-    id:10,
-    name: 'Эстакады'
-  },
-  {
-    id:11,
-    name: 'Силосы'
-  },
-  {
-    id:12,
-    name: 'Опоры ЛЭП'
-  },
-  {
-    id:13,
-    name: 'Спорткомплексы'
-  },
-  {
-    id:14,
-    name: 'Мосты'
-  }]
-
 
 const Categorie = () => {
   const {state} = useLocation()
+  const {categories} = useSelector(state => state.category)
   const [category, setCategory] = useState(  state?{...state}:{id:0, name:'Ангары'})
   const [filterData, setFilterData] = useReducer((state, newstate)=>({...state, ...newstate}), {category})
   const [manyAds, setManyAds] = useState(a)
-  const [categories, setCategories] = useState(b)
 
-  useEffect(()=>{
-    getCategories(category.id).then(res=>res && setCategories(res))
-  }, [])
 
   useEffect(()=>{
     state && setCategory({...state})
@@ -152,7 +89,7 @@ const Categorie = () => {
           <ul className="list-unstyled d-flex flex-wrap justify-content-start align-items-center">
             {categories && categories.map((element, index)=>
                 <li key ={index} className='me-3 mb-4'>
-                  <div className={`btn-4 ${category.id==element.id && 'active'}`} onClick={()=>setCategory(element)}>{element.name}</div>
+                  <div className={`btn-4 ${category.id==element.id && 'active'}`} onClick={()=>setCategory(element)}>{element.title}</div>
                 </li>
             )}
           </ul>

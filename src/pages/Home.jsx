@@ -13,9 +13,13 @@ import {ReactComponent as IconPrev} from '../assets/imgs/icons/prev.svg';
 import {ReactComponent as IconNext} from '../assets/imgs/icons/next.svg';
 import Quiz from '../components/Quiz';
 import ProjectCard from '../components/ProjectCard';
+import {useSelector} from "react-redux";
+import category from "../store/reducers/categories";
 
 
 const Home = () => {
+  const {categories} = useSelector(state => state.category)
+
   return (
     <main>
       <Container>
@@ -86,27 +90,11 @@ const Home = () => {
         <section className='sec-2 mb-35'>
           <h2>Каталог</h2>
           <Row xs={2} md={3} lg={4} className='gx-2 gx-sm-4 gy-4 gy-sm-5'>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Ангары"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img3.jpg"} title={"Быстровозводимые здания"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Склады"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Промышленные здания"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Кафе и рестораны"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Опоры ЛЭП"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Фермы"}/>
-            </Col>
+            {categories.slice(0,7).map((element, index)=>
+                <Col>
+                  <CategoryCard {...element}/>
+                </Col>
+            )}
             <Col>
               <button type='button' className='category-card-btn'>
                 <h3>Перейти <br/>в каталог</h3>

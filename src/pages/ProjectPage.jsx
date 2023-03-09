@@ -33,22 +33,22 @@ const ProjectPage = () => {
   const [imgs, setImgs] = useState([
     {
       id: 0,
-      url: 'imgs/img6.jpg',
+      url: '../imgs/img6.jpg',
       active: true,
     },
     {
       id: 1,
-      url: 'imgs/img7.jpg',
+      url: '../imgs/img7.jpg',
       active: false,
     },
     {
       id: 2,
-      url: 'imgs/img8.jpg',
+      url: '../imgs/img8.jpg',
       active: false,
     },
     {
       id: 3,
-      url: 'imgs/img3.jpg',
+      url: '../imgs/img3.jpg',
       active: false,
     },
   ]);
