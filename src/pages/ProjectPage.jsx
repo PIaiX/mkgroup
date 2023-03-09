@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -19,8 +19,18 @@ import 'swiper/css/scrollbar';
 import { IoHelpCircle } from "react-icons/io5";
 import ImgModal from '../components/utils/ImgModal';
 import Callback3 from '../components/forms/Callback3';
+import {useParams} from "react-router-dom";
+import {getAd} from "../services/adService";
 
 const ProjectPage = () => {
+  const { id } = useParams()
+
+  useEffect(()=>{
+    getAd(id)
+        .then(res=>console.log(res))
+        .catch(e=>console.log(e))
+  }, [])
+
   const [imgs, setImgs] = useState([
     {
       id: 0,

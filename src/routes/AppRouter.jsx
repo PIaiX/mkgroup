@@ -21,7 +21,7 @@ const router = createHashRouter(
       <Route index element={<Home />}/>
       <Route path="catalog" element={<Catalog/>}/>
       <Route path="catalog/categorie" element={<Categorie/>}/>
-      <Route path="catalog/categorie/project" element={<ProjectPage/>}/>
+      <Route path="catalog/categorie/project/:id" element={<ProjectPage/>}/>
       <Route path="about" element={<About/>}/>
       <Route path="services" element={<Services/>}/>
       <Route path="services/:serviceId" element={<ServicePage/>}/>
