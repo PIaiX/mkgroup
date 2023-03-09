@@ -7,6 +7,83 @@ import PageTitle from '../components/utils/PageTitle';
 import Callback1 from '../components/forms/Callback1';
 import CategoryCard from '../components/CategoryCard';
 
+const catalog=[{
+  id:0,
+  imgUrl:'imgs/img2.jpg',
+  title: 'Ангары'
+},
+  {
+    id:1,
+    imgUrl:'imgs/img3.jpg',
+    title: 'Склады'
+  },
+  {
+    id:2,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Фермы'
+  },
+  {
+    id:3,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Офисы'
+  },
+  {
+    id:4,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Промышленные здания'
+  },
+  {
+    id:5,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Торговые центры'
+  },
+  {
+    id:6,
+    imgUrl:'imgs/img2.jpg',
+    title: 'СТО и Автосервисы'
+  },
+  {
+    id:7,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Быстровозводимые здания'
+  },
+  {
+    id:8,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Кафе и рестораны'
+  },
+  {
+    id:9,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Центры логистики'
+  },
+  {
+    id:10,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Эстакады'
+  },
+  {
+    id:11,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Силосы'
+  },
+  {
+    id:12,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Опоры ЛЭП'
+  },
+  {
+    id:13,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Спорткомплексы'
+  },
+  {
+    id:14,
+    imgUrl:'imgs/img2.jpg',
+    title: 'Мосты'
+  }]
+
+
 const Catalog = () => {
   return (
     <main>
@@ -17,51 +94,11 @@ const Catalog = () => {
           <PageTitle title={'Каталог продукции'} color={'orange'}/>
 
           <Row xs={2} md={3} lg={4} className='gx-2 gx-sm-4 gy-4 gy-sm-5'>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Ангары"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img3.jpg"} title={"Быстровозводимые здания"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Склады"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Промышленные здания"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Кафе и рестораны"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Опоры ЛЭП"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Фермы"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Офисы"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"СТО и Автосервисы"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Силосы"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Эстакады"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Спорткомплексы"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Мосты"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Мачты связи"}/>
-            </Col>
-            <Col>
-              <CategoryCard imgUrl={"imgs/img2.jpg"} title={"Центры логистики"}/>
-            </Col>
+            {catalog.map((element, index)=>
+                <Col key={index}>
+                  <CategoryCard {...element}/>
+                </Col>
+            )}
           </Row>
         </section>
 

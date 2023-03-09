@@ -7,6 +7,13 @@ import {ReactComponent as IconGrid} from '../assets/imgs/icons/grid.svg';
 import {ReactComponent as IconMagnifier} from '../assets/imgs/icons/magnifier.svg';
 
 const Header = () => {
+  const links = [
+    {id:1, name:'Склады'},
+    {id:2, name:'Фермы'},
+    {id:4, name:'Промышленные здания'},
+    {id:7, name:'Быстровозводимые здания'},
+    {id:12, name:'Опоры ЛЭП'},
+  ]
   return (
     <>
     <header className='top'>
@@ -48,11 +55,9 @@ const Header = () => {
       <Container className='h-100 d-flex align-items-center'>
         <nav className='w-100'>
           <ul className='menu-2'>
-            <li><Link to='/catalog/categorie'>Склады</Link></li>
-            <li><Link to='/catalog/categorie'>Фермы</Link></li>
-            <li><Link to='/catalog/categorie'>Промышленные здания</Link></li>
-            <li><Link to='/catalog/categorie'>Быстровозводимые здания</Link></li>
-            <li><Link to='/catalog/categorie'>Опоры ЛЭП</Link></li>
+            {links.map((element, index)=>
+                <li key={index}><Link to={'/categorie'} state={element}>{element.name}</Link></li>
+            )}
           </ul>
         </nav>
       </Container>

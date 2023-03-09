@@ -1,5 +1,5 @@
 import React from 'react'
-import {createHashRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom'
+import {createBrowserRouter ,BrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom'
 import AppLayout from '../layouts/AppLayout'
 import About from '../pages/About'
 import AllNews from '../pages/AllNews'
@@ -15,13 +15,13 @@ import ProjectPage from '../pages/ProjectPage'
 import ServicePage from '../pages/ServicePage'
 import Services from '../pages/Services'
 
-const router = createHashRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<AppLayout />}>
       <Route index element={<Home />}/>
       <Route path="catalog" element={<Catalog/>}/>
-      <Route path="catalog/categorie" element={<Categorie/>}/>
-      <Route path="catalog/categorie/project/:id" element={<ProjectPage/>}/>
+      <Route path="categorie" element={<Categorie/>}/>
+      <Route path="project/:id" element={<ProjectPage/>}/>
       <Route path="about" element={<About/>}/>
       <Route path="services" element={<Services/>}/>
       <Route path="services/:serviceId" element={<ServicePage/>}/>

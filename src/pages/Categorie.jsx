@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -6,63 +6,155 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import PageTitle from '../components/utils/PageTitle';
 import Callback2 from '../components/forms/Callback2';
 import ProjectCard from '../components/ProjectCard';
-import {Link} from 'react-router-dom';
+import {Link, useLocation, useParams} from 'react-router-dom';
+import {getCategories, getManyAds} from "../services/AdsService";
+
+//delete consts
+const a=[{
+    name:'Сварная балка ГОСТ 8240–89 армированная',
+    img:'imgs/img2.jpg',
+    id:'1',
+    priceFrom:2333,
+    amount:2,
+    isHit:true
+  },
+  {
+    name:'Сварная балка ГОСТ 8240–89 армированная',
+    img:'imgs/img2.jpg',
+    id:'1',
+    priceFrom:2333,
+    amount:2,
+    isHit:true
+  },
+  {
+    name:'Сварная балка ГОСТ 8240–89 армированная',
+    img:'imgs/img2.jpg',
+    id:'1',
+    priceFrom:2333,
+    amount:2
+  },
+  {
+    name:'Сварная балка ГОСТ 8240–89 армированная',
+    img:'imgs/img2.jpg',
+    id:'1',
+    priceFrom:2333,
+    amount:2,
+    isHit:true
+  },
+  {
+    name:'Сварная балка ГОСТ 8240–89 армированная',
+    img:'imgs/img2.jpg',
+    id:'1',
+    priceFrom:2333,
+    amount:2
+  },
+  {
+    name:'Сварная балка ГОСТ 8240–89 армированная',
+    img:'imgs/img2.jpg',
+    id:'1',
+    priceFrom:2333,
+    amount:2,
+    isHit:true
+  },
+  {
+    name:'Сварная балка ГОСТ 8240–89 армированная',
+    img:'imgs/img2.jpg',
+    id:'1',
+    priceFrom:2333,
+    amount:2
+  },]
+const b=[{
+    id:0,
+    name: 'Ангары'
+  },
+  {
+    id:1,
+    name: 'Склады'
+  },
+  {
+    id:2,
+    name: 'Фермы'
+  },
+  {
+    id:3,
+    name: 'Офисы'
+  },
+  {
+    id:4,
+    name: 'Промышленные здания'
+  },
+  {
+    id:5,
+    name: 'Торговые центры'
+  },
+  {
+    id:6,
+    name: 'СТО и Автосервисы'
+  },
+  {
+    id:7,
+    name: 'Быстровозводимые здания'
+  },
+  {
+    id:8,
+    name: 'Кафе и рестораны'
+  },
+  {
+    id:9,
+    name: 'Центры логистики'
+  },
+  {
+    id:10,
+    name: 'Эстакады'
+  },
+  {
+    id:11,
+    name: 'Силосы'
+  },
+  {
+    id:12,
+    name: 'Опоры ЛЭП'
+  },
+  {
+    id:13,
+    name: 'Спорткомплексы'
+  },
+  {
+    id:14,
+    name: 'Мосты'
+  }]
+
 
 const Categorie = () => {
+  const {state} = useLocation()
+  const [category, setCategory] = useState(  state?{...state}:{id:0, name:'Ангары'})
+  const [filterData, setFilterData] = useReducer((state, newstate)=>({...state, ...newstate}), {category})
+  const [manyAds, setManyAds] = useState(a)
+  const [categories, setCategories] = useState(b)
+
+  useEffect(()=>{
+    getCategories(category.id).then(res=>res && setCategories(res))
+  }, [])
+
+  useEffect(()=>{
+    state && setCategory({...state})
+  }, [state])
+
+  useEffect(()=>{
+    getManyAds(filterData).then(res=>res && setManyAds(res))
+  },[category])
+
   return (
     <main>
       <Container>
         <section className='d-none d-lg-block sec-2'>
           <h2>Выберите категорию</h2>
           <ul className="list-unstyled d-flex flex-wrap justify-content-start align-items-center">
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Ангары</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Склады</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Фермы</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Офисы</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Промышленные здания</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Торговые центры</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>СТО и Автосервисы</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Быстровозводимые здания</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Кафе и рестораны</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Центры логистики</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Эстакады</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Силосы</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Опоры ЛЭП</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Спорткомплексы</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Мосты</Link>
-            </li>
-            <li className='me-3 mb-4'>
-              <Link to='/catalog/categorie' className='btn-4'>Мачты связи</Link>
-            </li>
+            {categories && categories.map((element, index)=>
+                <li key ={index} className='me-3 mb-4'>
+                  <div className={`btn-4 ${category.id==element.id && 'active'}`} onClick={()=>setCategory(element)}>{element.name}</div>
+                </li>
+            )}
           </ul>
         </section>
       </Container>
@@ -71,19 +163,12 @@ const Categorie = () => {
         <Breadcrumbs/>
 
         <section className='sec-3 mb-35'>
-          <PageTitle title={'Наименование категории'} text={'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum '}/>
+          <PageTitle title={category.name} text={'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum '}/>
           <h2>Выберите типовой проект нужного размера</h2>
           <Row xs={2} md={3} lg={4} className='gx-2 gx-sm-4 gy-4 gy-sm-5'>
-            <Col><ProjectCard /></Col>
-            <Col><ProjectCard /></Col>
-            <Col><ProjectCard /></Col>
-            <Col><ProjectCard /></Col>
-            <Col><ProjectCard /></Col>
-            <Col><ProjectCard /></Col>
-            <Col><ProjectCard /></Col>
-            <Col><ProjectCard /></Col>
-            <Col><ProjectCard /></Col>
-            <Col><ProjectCard /></Col>
+            {manyAds && manyAds.map((element, index)=>
+                <Col key={index}><ProjectCard {...element} /></Col>
+            )}
           </Row>
         </section>
 

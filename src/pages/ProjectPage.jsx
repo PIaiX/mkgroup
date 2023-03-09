@@ -9,26 +9,25 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import Breadcrumbs from '../components/Breadcrumbs';
 import PageTitle from '../components/utils/PageTitle';
 
-import {Scrollbar } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Scrollbar} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import { IoHelpCircle } from "react-icons/io5";
+import {IoHelpCircle} from "react-icons/io5";
 import ImgModal from '../components/utils/ImgModal';
 import Callback3 from '../components/forms/Callback3';
 import {useParams} from "react-router-dom";
-import {getAd} from "../services/adService";
-
+import {getOneAd} from "../services/AdsService";
 const ProjectPage = () => {
   const { id } = useParams()
+  const [ad, setAd] = useState()
 
   useEffect(()=>{
-    getAd(id)
-        .then(res=>console.log(res))
-        .catch(e=>console.log(e))
+    getOneAd(id)
+        .then((res)=>res && setAd(res))
   }, [])
 
   const [imgs, setImgs] = useState([
