@@ -7,6 +7,7 @@ import PortfolioCard from "../components/PortfolioCard";
 
 const a=[
   {
+    id:2,
     img:'imgs/img2.jpg',
     title:'At vero eos et accusamus et iusto',
     articles:[
@@ -14,6 +15,7 @@ const a=[
     ]
   },
   {
+    id:2,
     img:'imgs/img2.jpg',
     title:'At vero eos et accusamus et iusto',
     articles:[
@@ -23,6 +25,7 @@ const a=[
 
   },
   {
+    id:2,
     img:'imgs/img2.jpg',
     title:'At vero eos et accusamus et iusto',
     articles:[
@@ -32,7 +35,6 @@ const a=[
       'odio dignissimos ducimus qui blanditiis praesentium'
     ]
   },
-
 ]
 
 const Portfolio = () => {

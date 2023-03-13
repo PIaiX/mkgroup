@@ -1,14 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const ServiceCard = () => {
+const ServiceCard = ({id, img, title, inf}) => {
   return (
     <figure className='service'>
-      <img src="imgs/img2.jpg" alt="service" />
+      <img src={img} alt={title} />
       <figcaption>
-        <h4>At vero eos et accusamus</h4>
-        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos</p>
-        <Link to='42' className='btn-2'>Подробнее</Link>
+        <h4>{title}</h4>
+        <p>{inf}</p>
+        <Link to={`${id}`} className='btn-2'>Подробнее</Link>
       </figcaption>
     </figure>
   );

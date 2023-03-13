@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {Link} from 'react-router-dom';
 
-const Article = ({className, img, title, mainInf}) => {
+const Article = ({id, className, img, title, mainInf}) => {
   return (
     <article className={className}>
       <Row className='gx-2 gx-sm-3 gx-md-4'>
@@ -20,7 +20,7 @@ const Article = ({className, img, title, mainInf}) => {
               <li>odio dignissimos ducimus qui blanditiis praesentium</li>
             </ul>
           }
-          <Link to='12' className='btn-2' >Подробнее</Link>
+          <Link to={`${id}`} className='btn-2' >Подробнее</Link>
         </Col>
       </Row>
     </article>

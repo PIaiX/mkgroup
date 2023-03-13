@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Link} from "react-router-dom";
 
-const PortfolioCard = ({className, img, title, articles}) => {
+const PortfolioCard = ({id, className, img, title, articles}) => {
     return (
         <article className={className}>
             <Row className='gx-2 gx-sm-3 gx-md-4'>
@@ -19,7 +19,7 @@ const PortfolioCard = ({className, img, title, articles}) => {
                             )}
                         </ul>
                     }
-                    <Link to='12' className='btn-2' >Подробнее</Link>
+                    <Link to={`${id}`} className='btn-2' >Подробнее</Link>
                 </Col>
             </Row>
         </article>
