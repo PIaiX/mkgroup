@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -14,12 +14,16 @@ import {ReactComponent as IconNext} from '../assets/imgs/icons/next.svg';
 import Quiz from '../components/Quiz';
 import ProjectCard from '../components/ProjectCard';
 import {useSelector} from "react-redux";
-import category from "../store/reducers/categories";
+import {useAppSelector} from "../store";
+import {Link} from "react-router-dom";
+import {checkPhotoPath} from "../helpers/checkPhotoPath";
+import Callback3 from "../components/forms/Callback3";
 
 
 const Home = () => {
-  const {categories} = useSelector(state => state.category)
 
+  const categories = useAppSelector(state => state.app.categories)
+  const banners = useAppSelector(state => state.app.banners)
   return (
     <main>
       <Container>
@@ -34,54 +38,22 @@ const Home = () => {
             }}
             pagination={{ clickable: true }}
           >
-            <SwiperSlide>
-              <div className='img'>
-                <img src="imgs/img1.jpg" alt="Изготавливаем металлоконструкции любой сложности" />
-              </div>
-              <div className="descr">
-                <h2 className='title'>Изготавливаем металлоконструкции любой сложности</h2>
-                <div className="d-sm-flex align-items-center">
-                  <p className='flex-1'>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-                  <button type='button' className='btn-2 mt-3 mt-sm 0 ms-sm-5'>Оставить заявку</button>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='img'>
-                <img src="imgs/img1.jpg" alt="Изготавливаем металлоконструкции любой сложности" />
-              </div>
-              <div className="descr">
-                <h2 className='title'>Изготавливаем металлоконструкции любой сложности</h2>
-                <div className="d-sm-flex align-items-center">
-                  <p className='flex-1'>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-                  <button type='button' className='btn-2 mt-3 mt-sm 0 ms-sm-5'>Оставить заявку</button>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='img'>
-                <img src="imgs/img1.jpg" alt="Изготавливаем металлоконструкции любой сложности" />
-              </div>
-              <div className="descr">
-                <h2 className='title'>Изготавливаем металлоконструкции любой сложности</h2>
-                <div className="d-sm-flex align-items-center">
-                  <p className='flex-1'>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-                  <button type='button' className='btn-2 mt-3 mt-sm 0 ms-sm-5'>Оставить заявку</button>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='img'>
-                <img src="imgs/img1.jpg" alt="Изготавливаем металлоконструкции любой сложности" />
-              </div>
-              <div className="descr">
-                <h2 className='title'>Изготавливаем металлоконструкции любой сложности</h2>
-                <div className="d-sm-flex align-items-center">
-                  <p className='flex-1'>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-                  <button type='button' className='btn-2 mt-3 mt-sm 0 ms-sm-5'>Оставить заявку</button>
-                </div>
-              </div>
-            </SwiperSlide>
+            {
+              banners?.map((element, index)=>
+                <SwiperSlide key={index}>
+                  <div className='img'>
+                    <img src={checkPhotoPath(element?.image)} alt="Изготавливаем металлоконструкции любой сложности" />
+                  </div>
+                  <div className="descr">
+                    <h2 className='title'>{element?.title}</h2>
+                    <div className="d-sm-flex align-items-center">
+                      <div dangerouslySetInnerHTML={{__html:element?.description}}></div>
+                      <Callback3 btnClassName={'btn-2 mt-3 mt-sm 0 ms-sm-5'} btnText={'Оставить заявку'}/>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              )
+            }
             <div className="swiper-button-prev"><IconPrev/></div>
             <div className="swiper-button-next"><IconNext/></div>
           </Swiper>
@@ -90,16 +62,18 @@ const Home = () => {
         <section className='sec-2 mb-35'>
           <h2>Каталог</h2>
           <Row xs={2} md={3} lg={4} className='gx-2 gx-sm-4 gy-4 gy-sm-5'>
-            {categories.slice(0,7).map((element, index)=>
-                <Col>
+            {categories?.slice(0,7)?.map((element, index)=>
+                <Col key={index}>
                   <CategoryCard {...element}/>
                 </Col>
             )}
             <Col>
-              <button type='button' className='category-card-btn'>
-                <h3>Перейти <br/>в каталог</h3>
-                <div className='icon'><IconNext/></div>
-              </button>
+              <Link to={'/catalog'}>
+                <button type='button' className='category-card-btn'>
+                  <h3>Перейти <br/>в каталог</h3>
+                  <div className='icon'><IconNext/></div>
+                </button>
+              </Link>
             </Col>
           </Row>
         </section>
@@ -127,7 +101,7 @@ const Home = () => {
               <div className="offer">
                 <h3 className='fw-6'>Сварные балки ГОСТ 8240–89 всего за 2 333 ₽ за 1 тонну</h3>
                 <p className='fw-3'>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p>
-                <button type='button' className='btn-2'>Оставить заявку</button>
+                <Callback3 btnClassName={'btn-2'} btnText={'Оставить заявку'}/>
               </div>
             </SwiperSlide>
             <SwiperSlide>

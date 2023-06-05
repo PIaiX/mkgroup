@@ -9,7 +9,7 @@ const About = () => {
   return (
     <main>
       <Container>
-        <Breadcrumbs/>
+        <Breadcrumbs namePage={'О компании'}/>
 
         <section className='sec-7 mb-md-5'>
           <PageTitle title={'Нескучный заголовок'} text={'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum '}/>

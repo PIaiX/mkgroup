@@ -1,19 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Container from 'react-bootstrap/Container';
-import {Link, NavLink} from 'react-router-dom';
+import {Link, NavLink, useNavigate} from 'react-router-dom';
 import {ReactComponent as IconLogo} from '../assets/imgs/logo.svg';
 import {ReactComponent as IconPhone} from '../assets/imgs/icons/phone.svg';
 import {ReactComponent as IconGrid} from '../assets/imgs/icons/grid.svg';
 import {ReactComponent as IconMagnifier} from '../assets/imgs/icons/magnifier.svg';
+import {useAppSelector} from "../store";
 
 const Header = () => {
-  const links = [
-    {id:1, name:'Склады'},
-    {id:2, name:'Фермы'},
-    {id:4, name:'Промышленные здания'},
-    {id:7, name:'Быстровозводимые здания'},
-    {id:12, name:'Опоры ЛЭП'},
-  ]
+
+  const categories = useAppSelector(state => state.app.categories)
+  const information = useAppSelector(state => state.app.information)
+  const [searchInput, setSearchInput] = useState()
+  const navigate = useNavigate()
+
+  const SubmitClick = (e) =>{
+    e.preventDefault()
+    if(searchInput?.length>0)
+      navigate('/category', {state:{searchInput}})
+  }
+
   return (
     <>
     <header className='top'>
@@ -41,12 +47,12 @@ const Header = () => {
           <IconGrid className='fs-07'/>
           <span className='ms-2'>Каталог</span>
         </Link>
-        <form action="" className='form-search'>
-          <input type="search" placeholder='Я ищу...'/>
+        <form className='form-search' onSubmit={SubmitClick}>
+          <input value={searchInput} type="search" placeholder='Я ищу...' onChange={e=>setSearchInput(e.target.value)} />
           <button type='submit'><IconMagnifier/></button>
         </form>
-        <a href="tel:+78432405619" className='d-flex align-items-center'>
-          <span className='fs-13 me-2'>+7 843 240-56-19</span>
+        <a href={`tel:${information?.phone}`} className='d-flex align-items-center'>
+          <span className='fs-13 me-2'>{information?.phone}</span>
           <IconPhone className='color-1'/>
         </a>
       </Container>
@@ -55,8 +61,8 @@ const Header = () => {
       <Container className='h-100 d-flex align-items-center'>
         <nav className='w-100'>
           <ul className='menu-2'>
-            {links.map((element, index)=>
-                <li key={index}><Link to={'/categorie'} state={element}>{element.name}</Link></li>
+            {categories?.map((element, index)=>
+                <li key={index}><Link to={'/category'} state={element}>{element.name}</Link></li>
             )}
           </ul>
         </nav>

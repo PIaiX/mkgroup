@@ -1,12 +1,12 @@
 import {Api} from "./index";
 import {apiRoutes} from "../config/api";
 
-export const getAllNews = async () =>{
-    const result = await Api(`${apiRoutes.GET_NEWS}`)
+export const GetAllNews = async (params) =>{
+    const result = await Api(`${apiRoutes.GET_ALL_NEWS}?${ new URLSearchParams(params)}`)
     return result
 }
 
-export const getOneNew = async (id) =>{
-    const result = await Api(`${apiRoutes.GET_NEWS+id}`)
+export const GetOneNew = async (id) =>{
+    const result = await Api(`${apiRoutes.GET_ONE_NEW}/${id}`)
     return result
 }

@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Breadcrumbs from '../components/Breadcrumbs';
 import PageTitle from '../components/utils/PageTitle';
 import Article from '../components/Article';
-import {getAllNews} from "../services/newsService";
+import {GetAllNews} from "../services/newsService";
 //delete
 const a=[
   {
@@ -29,18 +29,21 @@ const a=[
 const AllNews = () => {
   const [news, setNews] = useState(a);
   useEffect(()=>{
-    getAllNews().then(res=>res && setNews)
+    GetAllNews({page:1, limit:20}).then(res=>res && setNews(res?.body))
   }, [])
 
   return (
     <main>
       <Container>
-        <Breadcrumbs/>
+        <Breadcrumbs namePage={'Новости'}/>
         <section className='sec-5'>
-          <PageTitle title={'Новости'} text={'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum '}/>
-          {news.map((element, index)=>
-            <Article key={index} {...element} className='news'/>
-          )}
+          <PageTitle title={'Новости'} text={''}/>
+          {news?.length>0?
+              news?.map((element, index)=>
+                  <Article key={index} {...element} className='news'/>
+              )
+              :<h1 className={'d-flex justify-content-center'}>Нет новостей</h1>
+          }
         </section>
       </Container>
     </main>

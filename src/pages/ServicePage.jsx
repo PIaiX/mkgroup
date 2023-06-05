@@ -21,20 +21,20 @@ const ServicePage = () => {
               <p className='mb-4'>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, est laborum et dolorum fuga.</p>
             </Col>
             <Col xs={6} lg={4}>
-              <img src="imgs/img2.jpg" alt="img2" className='img' />
+              <img src="../imgs/img2.jpg" alt="img2" className='img' />
             </Col>
             <Col xs={12} lg={8}>
               <Row className='justify-content-center gy-4 gx-4 gx-xl-5' xs={2} sm={3}>
                 <Col>
-                  <img src="imgs/icons/safe.png" alt="safe" className='img-fluid mb-3'/>
+                  <img src="../../imgs/icons/safe.png" alt="safe" className='img-fluid mb-3'/>
                   <h6>Culpa qui officia deserunt mollitia animi, est laborum et doloru</h6>
                 </Col>
                 <Col>
-                  <img src="imgs/icons/target.png" alt="target" className='img-fluid mb-3' />
+                  <img src="../imgs/icons/target.png" alt="target" className='img-fluid mb-3' />
                   <h6>Culpa qui officia deserunt mollitia animi, est laborum et doloru</h6>
                 </Col>
                 <Col>
-                  <img src="imgs/icons/trustworthy.png" alt="trustworthy" className='img-fluid mb-3' />
+                  <img src="../imgs/icons/trustworthy.png" alt="trustworthy" className='img-fluid mb-3' />
                   <h6>Culpa qui officia deserunt mollitia animi, est laborum et doloru</h6>
                 </Col>
               </Row>

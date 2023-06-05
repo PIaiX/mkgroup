@@ -4,8 +4,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {Link} from 'react-router-dom';
 import {ReactComponent as IconLogo} from '../assets/imgs/logo.svg';
+import {useAppSelector} from "../store";
 
 const Footer = () => {
+  const categories = useAppSelector(state => state.app.categories)
+
   return (
     <footer>
       <Container>
@@ -21,26 +24,18 @@ const Footer = () => {
           </Col>
           <Col md={3}>
             <ul>
-              <li><Link to='/catalog/categorie'>Склады</Link></li>
-              <li><Link to='/catalog/categorie'>Фермы</Link></li>
-              <li><Link to='/catalog/categorie'>Офисы</Link></li>
-              <li><Link to='/catalog/categorie'>Быстровозводимые здания</Link></li>
-              <li><Link to='/catalog/categorie'>Кафе и рестораны</Link></li>
+              {categories?.map((element, index)=><li key={index}>
+                <Link to='category#callback' state={element}>{element.name}</Link>
+              </li>)}
             </ul>
           </Col>
-          <Col md={2}>
-            <ul>
-              <li><Link to='/catalog/categorie'>Категория</Link></li>
-              <li><Link to='/catalog/categorie'>Категория</Link></li>
-              <li><Link to='/catalog/categorie'>Категория</Link></li>
-              <li><Link to='/catalog/categorie'>Категория</Link></li>
-              <li><Link to='/catalog/categorie'>Категория</Link></li>
-            </ul>
-          </Col>
+          <Col md={2}></Col>
           <Col md={4}>
             <h2>Не нашли что искали?</h2>
             <p className='mb-4'>Оставьте заявку и наш менеджер свяжется с вами в течение 15 минут</p>
-            <button type='button' className='btn-2'>Оставить заявку</button>
+            <Link to={'catalog#ref'} >
+              <button type='button' className='btn-2'>Оставить заявку</button>
+            </Link>
           </Col>
         </Row>
         <div className="bottom">

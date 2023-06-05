@@ -21,6 +21,8 @@ import ImgModal from '../components/utils/ImgModal';
 import Callback3 from '../components/forms/Callback3';
 import {useParams} from "react-router-dom";
 import {getOneAd} from "../services/AdsService";
+import functionForPrice from "../helpers/FunctionForPrice";
+import {checkPhotoPath} from "../helpers/checkPhotoPath";
 const ProjectPage = () => {
   const { id } = useParams()
   const [ad, setAd] = useState()
@@ -30,28 +32,11 @@ const ProjectPage = () => {
         .then((res)=>res && setAd(res))
   }, [])
 
-  const [imgs, setImgs] = useState([
-    {
-      id: 0,
-      url: '../imgs/img6.jpg',
-      active: true,
-    },
-    {
-      id: 1,
-      url: '../imgs/img7.jpg',
-      active: false,
-    },
-    {
-      id: 2,
-      url: '../imgs/img8.jpg',
-      active: false,
-    },
-    {
-      id: 3,
-      url: '../imgs/img3.jpg',
-      active: false,
-    },
-  ]);
+  const [imgs, setImgs] = useState([]);
+
+  useEffect(()=>{
+    ad?.images && setImgs([ad?.image, ...ad?.images]?.map((element, index)=>({id:index, url:checkPhotoPath(element), active:index==0})))
+  }, [ad])
 
   const changeImage = (id) => {
     setImgs(imgs.map(item => {
@@ -64,16 +49,15 @@ const ProjectPage = () => {
   }
 
   const activeImg = imgs.reduce((res, obj) => obj.active === true ? obj : res, {}); 
-  console.log(activeImg);
 
   return (
     <main>
       <Container>
-        <PageTitle title={'Информация о категории'} text={'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum '}/>
-        <Breadcrumbs/>
+        <PageTitle title={ad?.category?.name} text={ad?.category?.description}/>
+        <Breadcrumbs namePage={ad?.name}/>
 
         <section className='sec-12 mb-sm-4 mb-md-5'>
-          <h1>Быстровозводимый склад 12x12 </h1>
+          <h1>{ad?.name} </h1>
           <Row className='gx-xl-5'>
             <Col xs={12} lg={6}>
               <ImgModal url={activeImg.url} alt={'Быстровозводимый склад 12x12'} className={'main-img'}/>
@@ -100,12 +84,12 @@ const ProjectPage = () => {
                 <tbody>
                   <tr>
                     <td>Размеры</td>
-                    <td>12x12 м</td>
+                    <td>{ad?.size}</td>
                   </tr>
                   <tr>
                     <td>Наличие</td>
                     <td>
-                      Предзаказ 
+                      {ad?.availability}
                       <OverlayTrigger
                         placement={'left'}
                         overlay={
@@ -120,58 +104,35 @@ const ProjectPage = () => {
                   </tr>
                   <tr>
                     <td>Стоимость строительства от: </td>
-                    <td><h2 className='mb-0'>504 000 ₽</h2></td>
+                    <td><h2 className='mb-0'>{functionForPrice(ad?.price)} ₽</h2></td>
                   </tr>
                 </tbody>
               </Table>
               <Callback3 btnClassName={'btn-2 mb-4 mb-sm-5'} btnText={'Получить консультацию'}/>
-              <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+              <p>{ad?.description}</p>
             </Col>
             <Col xs={12} xl={10} className='mt-4 mt-sm-5'>
               <h2>Что то дополнительное про товар и его характеристики</h2>
             </Col>
             <Col xs={12} lg={8}>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+              <p>{''}</p>
               <div className="table-colored mt-4 mt-xl-5">
                 <table>
                   <thead>
                     <tr>
                       <th>№</th>
-                      <th>At vero eos et accusamus et iusto</th>
+                      <th>Категория</th>
                       <th>Цена,&nbsp;₽</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>10</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
+                  {ad?.variants?.map((element, index)=>
+                      <tr key={index}>
+                        <td>{element?.id}</td>
+                        <td>{element?.text}</td>
+                        <td>от {functionForPrice(element?.price)}</td>
+                      </tr>
+                  )}
                   </tbody>
                 </table>
               </div>

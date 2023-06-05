@@ -17,11 +17,10 @@ const s=[
 
 const Services = () => {
   const [serviceCards, setServiceCards] = useState(s)
-  console.log(serviceCards.length)
   return (
     <main>
       <Container>
-        <Breadcrumbs/>
+        <Breadcrumbs namePage={'Услуги'}/>
         <section className='sec-11 mb-sm-4 mb-md-5'>
           <PageTitle title={'Услуги'} text={'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum '}/>
           <Row xs={2} lg={3} className="gx-3 gx-sm-4 gy-4 gy-sm-5">

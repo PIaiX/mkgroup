@@ -43,7 +43,7 @@ const Portfolio = () => {
   return (
     <main>
       <Container>
-        <Breadcrumbs/>
+        <Breadcrumbs namePage={'Портфолио'}/>
 
         <section className='sec-8 mb-md-5'>
           <PageTitle title={'Портфолио'} text={'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum '}/>

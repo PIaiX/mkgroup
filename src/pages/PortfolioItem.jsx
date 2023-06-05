@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 
 import {ReactComponent as IconPrev} from '../assets/imgs/icons/prev.svg';
 import {ReactComponent as IconNext} from '../assets/imgs/icons/next.svg';
+import Callback3 from "../components/forms/Callback3";
 
 const PortfolioItem = () => {
   return (
@@ -40,16 +41,16 @@ const PortfolioItem = () => {
               }}
             >
               <SwiperSlide>
-                <img src="imgs/img6.jpg" alt="img6" className='img-fluid'/>
+                <img src="../imgs/img6.jpg" alt="img6" className='img-fluid'/>
               </SwiperSlide>
               <SwiperSlide>
-              <img src="imgs/img6.jpg" alt="img6" className='img-fluid'/>
+              <img src="../imgs/img6.jpg" alt="img6" className='img-fluid'/>
               </SwiperSlide>
               <SwiperSlide>
-              <img src="imgs/img6.jpg" alt="img6" className='img-fluid'/>
+              <img src="../imgs/img6.jpg" alt="img6" className='img-fluid'/>
               </SwiperSlide>
               <SwiperSlide>
-              <img src="imgs/img6.jpg" alt="img6" className='img-fluid'/>
+              <img src="../imgs/img6.jpg" alt="img6" className='img-fluid'/>
               </SwiperSlide>
               <div className="swiper-button-prev"><IconPrev/></div>
               <div className="swiper-button-next"><IconNext/></div>
@@ -71,7 +72,7 @@ const PortfolioItem = () => {
                   </tr>
                 </tbody>
               </Table>
-              <button type='button' className='btn-2 mt-sm-4'>Получить консультацию</button>
+              <Callback3 btnClassName={'btn-2 mt-sm-4'} btnText={'Получить консультацию'}/>
             </Col>
             <Col className='mt-4 mt-lg-0'>
               <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
