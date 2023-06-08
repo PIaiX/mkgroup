@@ -13,7 +13,7 @@ import {GetOneService} from "../services/services";
 
 const ServicePage = () => {
     const {serviceId} = useParams()
-    const [serviceCard] = useLoading({func: () => GetOneService(serviceId)})
+    const [serviceCard] = useLoading([() => GetOneService(serviceId)])
 
     const {title, image, description, variants} = serviceCard
 

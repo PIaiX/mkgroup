@@ -2,8 +2,6 @@ const apiRoutes = {
 
     // types of oil
     GET_ALL_CATEGORY:'category',
-    GET_ALL_SPECIFICATION:'specification/byCategory',
-    GET_ALL_PARAMETRS:'parameter/byCategoryWithOptions',
 
     // Oils
     GET_ALL_PRODUCT:'product',
@@ -13,8 +11,10 @@ const apiRoutes = {
     GET_PRODUCT_BY_SEARCH:'product/search',
 
     // News
-    GET_ALL_NEWS: 'news',
-    GET_ONE_NEW: 'news',
+    GET_NEWS: 'news',
+
+    // Portfolio
+    GET_PORTFOLIO: 'portfolio',
 
     // Services
     GET_ALL_SERVICES: 'service',

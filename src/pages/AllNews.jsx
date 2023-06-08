@@ -29,7 +29,7 @@ const a=[
 ]
 
 const AllNews = () => {
-  const [news] = useLoading({func:()=>GetAllNews({page:1, limit:20})})
+  const [news] = useLoading([()=>GetAllNews({page:1, limit:20})])
 
   if (news == 'loading')
     return <Loader/>

@@ -9,7 +9,7 @@ import Loader from "../components/Loader";
 
 const News = () => {
   const {newsId} =  useParams()
-  const [data] = useLoading({func:()=>GetOneNew(newsId)})
+  const [data] = useLoading([()=>GetOneNew(newsId)])
 
   if (data == 'loading')
     return <Loader/>

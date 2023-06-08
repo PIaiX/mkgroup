@@ -11,7 +11,7 @@ import useLoading from "../hooks/useLoading";
 
 const Services = () => {
 
-  const [serviceCards] = useLoading({func:()=>GetAllServices()})
+  const [serviceCards] = useLoading([()=>GetAllServices()])
 
   if(serviceCards=='loading')
     return <Loader />

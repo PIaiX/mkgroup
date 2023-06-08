@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-const useLoading = ({func}) => {
+const useLoading = ([func]) => {
     const [items, setItems] = useState('loading')
 
     useEffect(()=>{

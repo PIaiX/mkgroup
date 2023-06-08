@@ -4,41 +4,14 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import PageTitle from '../components/utils/PageTitle';
 import Article from '../components/Article';
 import PortfolioCard from "../components/PortfolioCard";
-
-const a=[
-  {
-    id:2,
-    img:'imgs/img2.jpg',
-    title:'At vero eos et accusamus et iusto',
-    articles:[
-        'At vero eos et accusamus et iusto'
-    ]
-  },
-  {
-    id:2,
-    img:'imgs/img2.jpg',
-    title:'At vero eos et accusamus et iusto',
-    articles:[
-      'At vero eos et accusamus et iusto',
-      'odio dignissimos ducimus qui blanditiis praesentium'
-    ]
-
-  },
-  {
-    id:2,
-    img:'imgs/img2.jpg',
-    title:'At vero eos et accusamus et iusto',
-    articles:[
-      'At vero eos et accusamus et iusto',
-      'odio dignissimos ducimus qui blanditiis praesentium',
-      'At vero eos et accusamus et iusto',
-      'odio dignissimos ducimus qui blanditiis praesentium'
-    ]
-  },
-]
-
+import useLoading from "../hooks/useLoading";
+import {GetAllPortfolios} from "../services/portfolio";
+import Loader from "../components/Loader";
 const Portfolio = () => {
-  const [news, setNews] = useState(a);
+  const [portfolios] = useLoading([()=>GetAllPortfolios()])
+
+  if (portfolios == 'loading')
+    return <Loader/>
 
   return (
     <main>
@@ -46,8 +19,8 @@ const Portfolio = () => {
         <Breadcrumbs namePage={'Портфолио'}/>
 
         <section className='sec-8 mb-md-5'>
-          <PageTitle title={'Портфолио'} text={'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum '}/>
-          {news.map((element, index)=>
+          <PageTitle title={'Портфолио'} text={''}/>
+          {portfolios?.map((element, index)=>
               <PortfolioCard key={index} {...element} className='pf'/>
           )}
         </section>
