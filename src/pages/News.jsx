@@ -4,19 +4,15 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import {GetOneNew} from "../services/newsService";
 import {useLocation, useParams} from "react-router-dom";
 import {checkPhotoPath} from "../helpers/checkPhotoPath";
+import useLoading from "../hooks/useLoading";
+import Loader from "../components/Loader";
 
 const News = () => {
-  const {state} = useLocation()
   const {newsId} =  useParams()
-  const [data, setData] = useState()
+  const [data] = useLoading({func:()=>GetOneNew(newsId)})
 
-  useEffect(()=>{
-    if(state)
-      setData(state)
-    else
-      GetOneNew(newsId).then(res=>res && setData(res))
-
-  }, [state])
+  if (data == 'loading')
+    return <Loader/>
 
   return (
     <main>

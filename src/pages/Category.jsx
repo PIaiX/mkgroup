@@ -72,61 +72,6 @@ const Category = () => {
               :<h1>Товаров не найдено</h1>
           }
         </section>
-
-        <section className='mb-35'>
-          <Row className='justify-content-center'>
-            <Col xs={12} lg={8}>
-              <h2 className='mb-4 mb-xl-5'>{category?.name}</h2>
-              <p>{category?.description}</p>
-              <div className="table-colored mt-4 mt-xl-5">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>№</th>
-                      <th>At vero eos et accusamus et iusto</th>
-                      <th>Цена,&nbsp;₽</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                    <tr>
-                      <td>10</td>
-                      <td>At vero eos et accusamus </td>
-                      <td>от 2000</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </Col>
-            <Col xs={12} sm={8} md={6} lg={4} className='mt-4 mt-sm-5 mt-lg-0'>
-              <Callback2/>
-            </Col>
-          </Row>
-        </section>
       </Container>
     </main>
   );

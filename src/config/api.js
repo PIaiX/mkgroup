@@ -16,6 +16,9 @@ const apiRoutes = {
     GET_ALL_NEWS: 'news',
     GET_ONE_NEW: 'news',
 
+    // Services
+    GET_ALL_SERVICES: 'service',
+
     // Information about us
     GET_INFORMATION:'settings',
 

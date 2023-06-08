@@ -4,6 +4,8 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import PageTitle from '../components/utils/PageTitle';
 import Article from '../components/Article';
 import {GetAllNews} from "../services/newsService";
+import useLoading from "../hooks/useLoading";
+import Loader from "../components/Loader";
 //delete
 const a=[
   {
@@ -27,10 +29,10 @@ const a=[
 ]
 
 const AllNews = () => {
-  const [news, setNews] = useState(a);
-  useEffect(()=>{
-    GetAllNews({page:1, limit:20}).then(res=>res && setNews(res?.body))
-  }, [])
+  const [news] = useLoading({func:()=>GetAllNews({page:1, limit:20})})
+
+  if (news == 'loading')
+    return <Loader/>
 
   return (
     <main>

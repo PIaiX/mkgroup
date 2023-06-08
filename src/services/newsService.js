@@ -3,7 +3,7 @@ import {apiRoutes} from "../config/api";
 
 export const GetAllNews = async (params) =>{
     const result = await Api(`${apiRoutes.GET_ALL_NEWS}?${ new URLSearchParams(params)}`)
-    return result
+    return result?.body
 }
 
 export const GetOneNew = async (id) =>{
