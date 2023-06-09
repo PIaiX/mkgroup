@@ -111,32 +111,37 @@ const ProjectPage = () => {
               <Callback3 btnClassName={'btn-2 mb-4 mb-sm-5'} btnText={'Получить консультацию'}/>
               <p>{ad?.description}</p>
             </Col>
-            <Col xs={12} xl={10} className='mt-4 mt-sm-5'>
-              <h2>Что то дополнительное про товар и его характеристики</h2>
-            </Col>
-            <Col xs={12} lg={8}>
-              <p>{''}</p>
-              <div className="table-colored mt-4 mt-xl-5">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>№</th>
-                      <th>Категория</th>
-                      <th>Цена,&nbsp;₽</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {ad?.variants?.map((element, index)=>
-                      <tr key={index}>
-                        <td>{element?.id}</td>
-                        <td>{element?.text}</td>
-                        <td>от {functionForPrice(element?.price)}</td>
-                      </tr>
-                  )}
-                  </tbody>
-                </table>
-              </div>
-            </Col>
+            {ad?.variants?.length>0 &&
+              <>
+                <Col xs={12} xl={10} className='mt-4 mt-sm-5'>
+                  <h2>Дополнительная информация о товаре и его характеристики</h2>
+                </Col>
+                <Col xs={12} lg={8}>
+                  <p>{''}</p>
+                  <div className="table-colored mt-4 mt-xl-5">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>№</th>
+                          <th>Категория</th>
+                          <th>Цена,&nbsp;₽</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {ad?.variants?.map((element, index)=>
+                          <tr key={index}>
+                            <td>{element?.id}</td>
+                            <td>{element?.text}</td>
+                            <td>от {functionForPrice(element?.price)}</td>
+                          </tr>
+                      )}
+                      </tbody>
+                    </table>
+                  </div>
+                </Col>
+                </>
+            }
+
           </Row>
         </section>
       </Container>

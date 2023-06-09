@@ -10,6 +10,7 @@ import ChangeLocation from "./ChangeLocation";
 import {GetAllCategory, GetBanner, GetInformation} from "../services/Options";
 import {initFingerprint} from "../store/slices/app/Action";
 import {useAppAction} from "../store";
+import Notification from "./Notification/Notification";
 
 const AppLayout = () => {
     const {mobile} = useIsMobile('991px')
@@ -34,7 +35,9 @@ const AppLayout = () => {
           : <Header />
         }
         <ChangeLocation>
-            <Outlet />
+            <Notification>
+                <Outlet />
+            </Notification>
         </ChangeLocation>
         {
           (mobile) 

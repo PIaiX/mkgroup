@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useForm} from "react-hook-form";
 import {SetConnect} from "../../services/order";
+import {NotificationContext} from "../../layouts/Notification/Notification";
 
 const Callback1 = () => {
 
-    const {handleSubmit, register, formState:{errors}, getValues, setValue} = useForm()
+    const [setStatusNotification] = useContext(NotificationContext);
+    const {handleSubmit, register, formState:{errors}, getValues, setValue, reset} = useForm()
     const SubmitClick = (data) =>{
-        SetConnect(data).then(res=>{if(res){
-            setValue('lastName', '')
-            setValue('phone', '')
-        }})
+        SetConnect(data)
+            .then(res=>{if(res){
+                reset()
+                setStatusNotification('good')
+            }})
+            .catch(e=> setStatusNotification('bad'))
     }
 
     return (
