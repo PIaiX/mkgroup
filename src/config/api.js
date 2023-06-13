@@ -30,6 +30,11 @@ const apiRoutes = {
 
     // Connection
     CREATE_CONNECT:'callRequest',
+
+    // Quiz
+    GET_QUIZ:'quiz',
+    GET_QUIZ_INFO:'quiz/info/0188b54f-f4f8-7714-a325-9c24ed7e58b9',
+
 }
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
