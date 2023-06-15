@@ -3,14 +3,15 @@ export async function Api(url='', {body, method}={body:null, method:'GET'}) {
     const mainHeaders = {
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Credentials" : true,
         'Content-Type': 'application/json',
         'Fingerprint': localStorage.getItem('fingerprint')
     }
     try {
         const init=method=='GET'?{headers: {...mainHeaders}, method}:{headers: {...mainHeaders}, method, body:JSON.stringify(body)}
-        const result = await fetch(BASE_API_URL+url,
+        const result = await fetch(`${BASE_API_URL}${url}`,
             {...init})
-        if(result.status!=400 && result.status!=500)
+        if(result?.status!=400 && result?.status!=500)
             return result.json()
         return null
     }catch (e){

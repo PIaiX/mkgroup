@@ -3,12 +3,13 @@ const apiRoutes = {
     // types of oil
     GET_ALL_CATEGORY:'category',
 
-    // Oils
+    // Products
     GET_ALL_PRODUCT:'product',
     GET_PRODUCT_DY_IDS:'product/byIds',
     GET_ONE_PRODUCT:'product/withParameters',
     GET_PRODUCT_WITH_DISCOUNT:'product/withDiscount',
     GET_PRODUCT_BY_SEARCH:'product/search',
+    GET_PROMO_PRODUCTS:'product/promo',
 
     // News
     GET_NEWS: 'news',
@@ -33,6 +34,7 @@ const apiRoutes = {
 
     // Quiz
     GET_QUIZ:'quiz',
+    POST_QUIZ:'quiz/pass',
     GET_QUIZ_INFO:'quiz/info/0188b54f-f4f8-7714-a325-9c24ed7e58b9',
 
 }

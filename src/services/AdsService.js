@@ -6,6 +6,11 @@ export const getOneAd = async (id)=>{
     return result
 }
 
+export const getPromoAds = async ()=>{
+    const result = await Api(`${apiRoutes.GET_PROMO_PRODUCTS}`)
+    return result
+}
+
 export const getManyAds = async (params)=>{
     const result = await Api(`${apiRoutes.GET_ALL_PRODUCT}?page=1&limit=20&${new URLSearchParams(params)}`)
     return result

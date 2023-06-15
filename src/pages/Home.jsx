@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Navigation, Pagination, Scrollbar } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Navigation, Pagination, Scrollbar} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -13,17 +13,21 @@ import {ReactComponent as IconPrev} from '../assets/imgs/icons/prev.svg';
 import {ReactComponent as IconNext} from '../assets/imgs/icons/next.svg';
 import Quiz from '../components/Quiz';
 import ProjectCard from '../components/ProjectCard';
-import {useSelector} from "react-redux";
 import {useAppSelector} from "../store";
 import {Link} from "react-router-dom";
 import {checkPhotoPath} from "../helpers/checkPhotoPath";
 import Callback3 from "../components/forms/Callback3";
+import {getPromoAds} from "../services/AdsService";
+import useLoading from "../hooks/useLoading";
+import Loader from "../components/Loader";
 
 
 const Home = () => {
 
   const categories = useAppSelector(state => state.app.categories)
   const banners = useAppSelector(state => state.app.banners)
+  const [promo] = useLoading([getPromoAds])
+
   return (
     <main>
       <Container>
@@ -106,12 +110,13 @@ const Home = () => {
             </SwiperSlide>
             <SwiperSlide>
               <Row xs={2} md={3} lg={2} className='gx-2 gx-sm-4'>
-                <Col>
-                  <ProjectCard />
-                </Col>
-                <Col>
-                  <ProjectCard />
-                </Col>
+                {promo=='loading'?
+                  <Loader />
+                  :promo?.map((element, index)=>
+                    <Col key={index}>
+                      <ProjectCard {...element} />
+                    </Col>
+                )}
               </Row>
             </SwiperSlide>
           </Swiper>
