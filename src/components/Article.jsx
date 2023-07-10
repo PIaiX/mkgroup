@@ -23,7 +23,7 @@ const Article = (props) => {
         </Col>
         <Col xs={6} md={8} lg={9}>
           <h2>{title}</h2>
-          <div dangerouslySetInnerHTML={{__html:text}}></div>
+          <div className={'articleNews'} dangerouslySetInnerHTML={{__html:text}}></div>
           {
             (className === 'pf') &&
             <ul className='mt-3 mt-sm-4'>

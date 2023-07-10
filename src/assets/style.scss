@@ -529,7 +529,7 @@ button {
       left: 5%;
       object-position: 50% 65%;
     }
-    &::before { 
+    &::before {
       background: linear-gradient(to right, $color-2 30%, transparent 70%);
       @media (max-width:767px) {
         background: linear-gradient(to right, $color-2 40%, transparent 85%);

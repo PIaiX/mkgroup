@@ -52,7 +52,7 @@ const Home = () => {
                     <h2 className='title'>{element?.title}</h2>
                     <div className="d-sm-flex align-items-center">
                       <div dangerouslySetInnerHTML={{__html:element?.description}}></div>
-                      <Callback3 btnClassName={'btn-2 mt-3 mt-sm 0 ms-sm-5'} btnText={'Оставить заявку'}/>
+                      <Callback3 btnClassName={'btn-2 mt-3 mt-sm 0 ms-sm-5  text-nowrap'} btnText={'Оставить заявку'}/>
                     </div>
                   </div>
                 </SwiperSlide>

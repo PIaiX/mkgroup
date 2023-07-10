@@ -41,7 +41,7 @@ const Header = () => {
       <Container>
         <Link to='/' className="logo">
           <IconLogo/>
-          <h6>Описание деятельности <br/>или слоган компании</h6>
+          <h6>Изготовление <br/>металлоконструкций</h6>
         </Link>
         <Link to='/catalog' className='btn-1 align-items-baseline'>
           <IconGrid className='fs-07'/>
