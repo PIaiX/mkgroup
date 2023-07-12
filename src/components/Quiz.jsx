@@ -98,8 +98,7 @@ const Quiz = () => {
                                             <Col key={index}>
                                                 <label className='figure' onClick={() => setOnSelect(element?.id)}>
                                                     <input type="radio" name={'radio' + page}/>
-                                                    <div className='figure-img'
-                                                         style={{backgroundImage: `url('${checkPhotoPath(element?.image)}')`}}></div>
+                                                    <div className='figure-img' style={{backgroundImage: `url('${checkPhotoPath(element?.image)}')`, aspectRatio:'1/1'}}></div>
                                                     <h5 className='text'>{element?.text}</h5>
                                                 </label>
                                             </Col>
