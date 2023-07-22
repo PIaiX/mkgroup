@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -104,7 +104,11 @@ const Home = () => {
             <SwiperSlide>
               <div className="offer">
                 <h3 className='fw-6'>Сварные балки ГОСТ 8240–89 всего за 2 333 ₽ за 1 тонну</h3>
-                <p className='fw-3'>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p>
+                <p className='fw-3'>
+                  Хотите построить металлокаркас, но не знаете с чего начать?
+                  <br/>
+                  Оставьте заявку. Наши специалисты свяжутся с вами в ближайшее время и проконсультируют по всем возникшим вопросам.
+                </p>
                 <Callback3 btnClassName={'btn-2'} btnText={'Оставить заявку'}/>
               </div>
             </SwiperSlide>

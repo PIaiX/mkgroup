@@ -8,8 +8,6 @@ import {store} from './store/index'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-        {/*<PersistGate loading={null} persistor={persistor}>*/}
         <App/>
-        {/*</PersistGate>*/}
     </Provider>
 )
