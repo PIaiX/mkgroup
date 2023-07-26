@@ -22,14 +22,13 @@ const Footer = () => {
               <li><Link to='/contacts'>Контакты</Link></li>
             </ul>
           </Col>
-          <Col md={3}>
+          <Col md={5}>
             <ul>
               {categories?.map((element, index)=><li key={index}>
                 <Link to='category#callback' state={element}>{element.name}</Link>
               </li>)}
             </ul>
           </Col>
-          <Col md={2}></Col>
           <Col md={4}>
             <h2>Не нашли что искали?</h2>
             <p className='mb-4'>Оставьте заявку и наш менеджер свяжется с вами в течение 15 минут</p>

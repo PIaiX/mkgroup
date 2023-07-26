@@ -13,10 +13,12 @@ const Contacts = () => {
         <Breadcrumbs namePage={'Контакты'}/>
         <section className='sec-4'>
           <PageTitle title={'Контакты'}/>
-          <h2>{information?.legalStatus}</h2>
+          {/* <h2>{information?.legalStatus}</h2> */}
+          <h2>МСК Групп</h2>
           <ul className='list-unstyled mb-5'>
-            <li className='mb-3'><a href={`tel:${information?.phone}`}>{information?.phone}</a></li>
-            <li className='mb-3'><a href="/">mail{information?.email}</a></li>
+            {/* <li className='mb-3'><a href={`tel:${information?.phone}`}>{information?.phone}</a></li> */}
+            <li className='mb-3'><a href="tel:89662405619">8 (966) 240-56-19</a></li>
+            <li className='mb-3'><a href="/">{information?.email}</a></li>
             <li className='mb-3'><address className='black'>{information?.address}</address></li>
           </ul>
           <iframe id='map' title='map' src="https://yandex.ru/map-widget/v1/?um=constructor%3A332f156714adeb82f855fce7b3fcf200fec003869f9f75f75dc4e7a47902b724&amp;source=constructor" width="100%" height="400" frameBorder="0"></iframe>

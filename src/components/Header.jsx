@@ -51,8 +51,12 @@ const Header = () => {
           <input value={searchInput} type="search" placeholder='Я ищу...' onChange={e=>setSearchInput(e.target.value)} />
           <button type='submit'><IconMagnifier/></button>
         </form>
-        <a href={`tel:${information?.phone}`} className='d-flex align-items-center'>
+        {/* <a href={`tel:${information?.phone}`} className='d-flex align-items-center'>
           <span className='fs-13 me-2'>{information?.phone}</span>
+          <IconPhone className='color-1'/>
+        </a> */}
+        <a href="tel:89662405619" className='d-flex align-items-center'>
+          <span className='fs-13 me-2'>8 (966) 240-56-19</span>
           <IconPhone className='color-1'/>
         </a>
       </Container>
